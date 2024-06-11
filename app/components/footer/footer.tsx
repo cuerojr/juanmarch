@@ -26,7 +26,7 @@ function Footer() {
           <div className="mb-4">
             <h3 className="font-semibold text-[4.167vw] leading-[4.67vw] tracking-tighter uppercase">
               <div className="line">
-                <div> I'm notoriously</div>
+                <div> Im notoriously</div>
               </div>
               <div className="line">
                 <div> slow at getting</div>
