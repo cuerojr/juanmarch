@@ -3,7 +3,6 @@
 const nextConfig = {
     env: {
       // fe_api_url: process.env.apiUrl,
-      
     },
     images: {
       dangerouslyAllowSVG: true,
