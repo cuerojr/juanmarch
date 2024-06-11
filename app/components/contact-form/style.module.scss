@@ -1,0 +1,29 @@
+.footer_form {
+    width: 100%;
+    .form_group{
+        display: grid;
+        flex-direction: row;
+        margin-bottom: 1rem;
+
+        label {
+            margin-bottom: .5rem;
+        }
+
+        input {
+            width: 100%;
+            border: 0;
+            border-bottom: 1px;
+            border-color: lightgray;
+            border-style: solid;
+            padding: .5rem .75rem;
+        }
+
+        textarea {
+            width: 100%;
+            border: 0;
+            border-bottom: 1px;
+            border-color: lightgray;
+            border-style: solid;
+        }
+    }
+}
