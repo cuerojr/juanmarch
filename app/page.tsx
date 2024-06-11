@@ -3,6 +3,7 @@
 import Navbar from '@/app/components/navbar/navbar';
 import Header from "@/app/components/header/header";
 import Works from "@/app/components/works/works";
+import Contact from "@/app/components/contact/contact";
 import Footer from "@/app/components/footer/footer";
 
 import { Toaster } from '@/components/ui/toaster';
@@ -14,7 +15,8 @@ export default function Home() {
       <Navbar />
       <Header />  
       <Works />
-      <Footer /> 
+      <Contact />
+      <Footer />
     </main>
   )
 }
