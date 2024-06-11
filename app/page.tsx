@@ -1,8 +1,9 @@
 'use client'
 
-import Footer from "@/app/components/footer/footer";
-import Header from "@/app/components/header/header";
 import Navbar from '@/app/components/navbar/navbar';
+import Header from "@/app/components/header/header";
+import Works from "@/app/components/works/works";
+import Footer from "@/app/components/footer/footer";
 
 import { Toaster } from '@/components/ui/toaster';
 
@@ -12,7 +13,8 @@ export default function Home() {
     <main id="a-main" className="h-screen w-screen bg-[#fcf6f4] relative">        
       <Navbar />
       <Header />  
-      <Footer />
+      <Works />
+      <Footer /> 
     </main>
   )
 }

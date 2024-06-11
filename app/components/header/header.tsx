@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
-import Footer from "../footer/footer";
+import Footer from "../works/works";
 
 export default function Header() {
   const sectionContainer = useRef<HTMLDivElement>(null);
