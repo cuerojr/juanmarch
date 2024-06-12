@@ -3,8 +3,17 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import { CustomEase } from 'gsap/dist/CustomEase'
 
-function SingleImage({ start1, end1, url }: { start1: string, end1: string, url: string }) {
+function SingleImage({
+  start1,
+  end1,
+  url,
+}: {
+  start1: string;
+  end1: string;
+  url: string;
+}) {
   const sectionContainer = useRef<HTMLDivElement>(null);
   const imgContainer = useRef<HTMLDivElement>(null);
 
@@ -18,8 +27,11 @@ function SingleImage({ start1, end1, url }: { start1: string, end1: string, url:
       const titleAnimation = gsap
         .timeline({ paused: false })
         .to(imgContainer.current, {
-          ease: "easeOut",
-          duration: 1,
+          duration: 2.5,
+          ease: CustomEase.create(
+            "custom",
+            "M0,0 C0.126,0.382 0.042,0.663 0.172,0.854 0.32,1.071 0.818,1.001 1,1 "
+          ),
           y: 0,
           opacity: 1,
           stagger: 1.5,

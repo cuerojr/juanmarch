@@ -1,5 +1,6 @@
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
+
 import { useEffect } from 'react'
 
 // https://greensock.com/docs/v3/GSAP/gsap.registerPlugin()

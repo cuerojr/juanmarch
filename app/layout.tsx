@@ -24,7 +24,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={cn(primaryFont.variable)}>
-      <body className="">
+      <body>
         <Client />
         <Cursor />
         {children}
