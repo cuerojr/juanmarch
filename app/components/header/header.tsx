@@ -8,41 +8,32 @@ import { CustomEase } from "gsap/dist/CustomEase";
 export default function Header() {
   const sectionContainer = useRef<HTMLDivElement>(null);
   const headerContainer = useRef<HTMLImageElement>(null);
-
+  const animData = {
+    duration: 2,
+    ease: CustomEase.create(
+      "custom",
+      "M0,0 C0.126,0.382 0.091,0.674 0.249,0.822 0.441,1.002 0.818,1.001 1,1 "
+    ),
+    y: 0,
+    opacity: 1,
+    stagger: 0.02,
+    transform: "rotate(0deg)",
+    delay: 0.3,
+  };
   useEffect(() => {
     let ctx = gsap.context(() => {
       gsap.set(".text-reveal", {
         opacity: 0,
       });
 
-      gsap.timeline({ paused: false }).to(".text-reveal", {
-        duration: 2.5,
-        ease: CustomEase.create(
-          "custom",
-          "M0,0 C0.126,0.382 0.091,0.674 0.249,0.822 0.441,1.002 0.818,1.001 1,1 "
-        ),
-        y: 0,
-        opacity: 1,
-        stagger: 0.02,
-        transform: "rotate(0deg)",
-        delay: 0.5,
-      });
+      gsap.timeline({ paused: false }).to(".text-reveal", animData);
 
       gsap.set(headerContainer.current, {
         y: headerContainer.current?.offsetHeight! + 10,
         transform: "rotate(6deg)",
       });
 
-      gsap.timeline({ paused: false }).to(headerContainer.current, {
-        duration: 2.5,
-        ease: CustomEase.create(
-          "custom",
-          "M0,0 C0.126,0.382 0.091,0.674 0.249,0.822 0.441,1.002 0.818,1.001 1,1 "
-        ),
-        transform: "rotate(0deg)",
-        y: 0,
-        delay: 0.5,
-      });
+      gsap.timeline({ paused: false }).to(headerContainer.current, animData);
     });
     return () => ctx.revert();
   }, []);
@@ -56,7 +47,7 @@ export default function Header() {
       <div className="heading flex top-[50%] absolute left-[6.25vw] right-[6.25vw] translate-y-[-8.25vw] overflow-hidden">
         <img
           ref={headerContainer}
-          className="w-[34.72vw] ml-auto translate-y-44 rotate-6"
+          className="w-[34.72vw] ml-auto translate-y-[12rem] rotate-6"
           src="https://alitwotimes.com/wp-content/themes/aliali/src/assets/svg/logo-ali-black.svg"
           alt="Ali Ali"
         />

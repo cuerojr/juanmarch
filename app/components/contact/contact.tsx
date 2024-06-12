@@ -10,21 +10,22 @@ import { CustomEase } from "gsap/dist/CustomEase";
 function Contact() {
   const sectionContainer = useRef<HTMLDivElement>(null);
   const headerContainer = useRef<HTMLImageElement>(null);
-
+  const animData = {
+    duration: 2,
+    ease: CustomEase.create(
+      "custom",
+      "M0,0 C0.126,0.382 0.091,0.674 0.249,0.822 0.441,1.002 0.818,1.001 1,1 "
+    ),
+    y: 0,
+    opacity: 1,
+    stagger: 0.02,
+    transform: "rotate(0deg)",
+    delay: 0.3,
+  };
   useEffect(() => {
     let ctx = gsap.context(() => {
       
-      const textAnimation = gsap.timeline({ paused: false }).to(".uppercase-reveal", {
-        duration: 2.5,
-        ease: CustomEase.create(
-          "custom",
-          "M0,0 C0.126,0.382 0.091,0.674 0.249,0.822 0.441,1.002 0.818,1.001 1,1 "
-        ),
-        y: 0,
-        stagger: 0.02,
-        transform: "rotate(0deg)",
-        delay: 0.5,
-      });
+      const textAnimation = gsap.timeline({ paused: false }).to(".uppercase-reveal", animData);
 
       ScrollTrigger.create({
         trigger: sectionContainer.current,
@@ -35,16 +36,7 @@ function Contact() {
         scrub: false,
       });
 
-      const titleAnimation = gsap.timeline({ paused: false }).to(headerContainer.current, {
-        duration: 2.5,
-        ease: CustomEase.create(
-          "custom",
-          "M0,0 C0.126,0.382 0.091,0.674 0.249,0.822 0.441,1.002 0.818,1.001 1,1 "
-        ),
-        transform: "rotate(0deg)",
-        y: 0,
-        delay: 0.5,
-      });
+      const titleAnimation = gsap.timeline({ paused: false }).to(headerContainer.current, animData);
 
       ScrollTrigger.create({
         trigger: sectionContainer.current,
