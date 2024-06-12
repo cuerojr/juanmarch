@@ -66,7 +66,7 @@ function Contact() {
               data-transition="contact"
             >
               <div className="line">
-                <div> Get in touch </div>
+                <div>Contactos</div>
               </div>
             </a>
           </h2>
@@ -75,25 +75,25 @@ function Contact() {
           <div className="mb-4">
             <h3 className="font-semibold text-[4.167vw] leading-[4.67vw] tracking-tighter uppercase">
               <div className="line overflow-hidden">
-                <div className="uppercase-reveal translate-y-44 rotate-6"> Im notoriously</div>
+                <div className="uppercase-reveal translate-y-44 rotate-6">Me demoro</div>
               </div>
               <div className="line overflow-hidden">
-                <div className="uppercase-reveal translate-y-44 rotate-6"> slow at getting</div>
+                <div className="uppercase-reveal translate-y-44 rotate-6">en contestar</div>
               </div>
               <div className="line overflow-hidden">
-                <div className="uppercase-reveal translate-y-44 rotate-6"> back to emails </div>
+                <div className="uppercase-reveal translate-y-44 rotate-6">los correos</div>
               </div>
             </h3>
           </div>
-          <p className="font-semibold text-[0.972vw] leading-[1.111vw] tracking-tighter uppercase">
-            In a hurry? please
+          <p className="font-semibold gap-[0.15rem] items-end flex text-[0.972vw] leading-[1.111vw] tracking-tighter uppercase">
+            ¿Estás apurado? por favor
             <a
               href="https://alitwotimes.com/contact/"
               data-transition="contact"
             >
-              contact
+              contactá
             </a>
-            my awesome producers
+            a mi equipo
           </p>
         </div>
       </section>
