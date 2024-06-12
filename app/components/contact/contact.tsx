@@ -30,7 +30,7 @@ function Contact() {
       const textAnimation = gsap.timeline({ paused: false }).to(".uppercase-reveal", animData);
 
       ScrollTrigger.create({
-        trigger: sectionContainer.current,
+        trigger: textContainer.current,
         start: "top center",
         end: `bottom bottom`,
         animation: textAnimation,
@@ -41,7 +41,7 @@ function Contact() {
       const titleAnimation = gsap.timeline({ paused: false }).to(headerContainer.current, animData);
 
       ScrollTrigger.create({
-        trigger: textContainer.current,
+        trigger: sectionContainer.current,
         start: "top center",
         end: `bottom bottom`,
         animation: titleAnimation,
