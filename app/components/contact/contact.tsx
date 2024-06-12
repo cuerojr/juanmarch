@@ -9,7 +9,9 @@ import { CustomEase } from "gsap/dist/CustomEase";
 
 function Contact() {
   const sectionContainer = useRef<HTMLDivElement>(null);
+  const textContainer = useRef<HTMLDivElement>(null);
   const headerContainer = useRef<HTMLImageElement>(null);
+
   const animData = {
     duration: 2,
     ease: CustomEase.create(
@@ -39,7 +41,7 @@ function Contact() {
       const titleAnimation = gsap.timeline({ paused: false }).to(headerContainer.current, animData);
 
       ScrollTrigger.create({
-        trigger: sectionContainer.current,
+        trigger: textContainer.current,
         start: "top center",
         end: `bottom bottom`,
         animation: titleAnimation,
@@ -71,7 +73,7 @@ function Contact() {
             </a>
           </h2>
         </div>
-        <div className="mb-[5.556vw] ml-[22.153vw]">
+        <div ref={textContainer} className="mb-[5.556vw] ml-[22.153vw]">
           <div className="mb-4">
             <h3 className="font-semibold text-[4.167vw] leading-[4.67vw] tracking-tighter uppercase">
               <div className="line overflow-hidden">
