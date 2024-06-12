@@ -3,7 +3,7 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import Footer from "../works/works";
-import { CustomEase } from 'gsap/dist/CustomEase'
+import { CustomEase } from "gsap/dist/CustomEase";
 
 export default function Header() {
   const sectionContainer = useRef<HTMLDivElement>(null);
@@ -12,21 +12,20 @@ export default function Header() {
   useEffect(() => {
     let ctx = gsap.context(() => {
       gsap.set(".text-reveal", {
-        y: 30,
         opacity: 0,
-        transform: "rotate(6deg)",
       });
 
       gsap.timeline({ paused: false }).to(".text-reveal", {
         duration: 2.5,
         ease: CustomEase.create(
           "custom",
-          "M0,0 C0.126,0.382 0.042,0.663 0.172,0.854 0.32,1.071 0.818,1.001 1,1 "
+          "M0,0 C0.126,0.382 0.091,0.674 0.249,0.822 0.441,1.002 0.818,1.001 1,1 "
         ),
         y: 0,
         opacity: 1,
         stagger: 0.02,
         transform: "rotate(0deg)",
+        delay: 0.5,
       });
 
       gsap.set(headerContainer.current, {
@@ -38,10 +37,11 @@ export default function Header() {
         duration: 2.5,
         ease: CustomEase.create(
           "custom",
-          "M0,0 C0.126,0.382 0.042,0.663 0.172,0.854 0.32,1.071 0.818,1.001 1,1 "
+          "M0,0 C0.126,0.382 0.091,0.674 0.249,0.822 0.441,1.002 0.818,1.001 1,1 "
         ),
         transform: "rotate(0deg)",
         y: 0,
+        delay: 0.5,
       });
     });
     return () => ctx.revert();
@@ -66,7 +66,7 @@ export default function Header() {
           <h1 className="hidden">Juan March</h1>
           <div className="overflow-hidden">
             <a
-              className="text-reveal translate-y-28 rotate-6 block"
+              className="text-reveal translate-y-20 rotate-6 block"
               target="_blank"
               href="mailto:al@gmail.com"
             >
@@ -76,39 +76,39 @@ export default function Header() {
 
           <h2 className="font-semibold text-4xl leading-8 tracking-tight">
             <div className="overflow-hidden">
-              <div className="text-reveal translate-y-28 rotate-6">Diseño</div>
+              <div className="text-reveal translate-y-20 rotate-6">Diseño</div>
             </div>
             <div className="overflow-hidden">
-              <div className="text-reveal translate-y-28 rotate-6">
+              <div className="text-reveal translate-y-20 rotate-6">
                 Creación
               </div>
             </div>
             <div className="overflow-hidden">
-              <div className="text-reveal translate-y-28 rotate-6">2024</div>
+              <div className="text-reveal translate-y-20 rotate-6">2024</div>
             </div>
           </h2>
         </div>
         <div className="absolute bottom-[6.25vw] right-[6.25vw] text-right">
           <h3 className="mb-7">
             <div className="overflow-hidden font-semibold">
-              <div className="text-reveal translate-y-28 rotate-6">
+              <div className="text-reveal translate-y-20 rotate-6">
                 *(juanmarch)
               </div>
             </div>
           </h3>
           <div className="text-xs">
             <div className="overflow-hidden">
-              <div className="text-reveal translate-y-28 rotate-6">
+              <div className="text-reveal translate-y-20 rotate-6">
                 Juan March es un diseñador creativo
               </div>
             </div>
             <div className="overflow-hidden">
-              <div className="text-reveal translate-y-28 rotate-6">
+              <div className="text-reveal translate-y-20 rotate-6">
                 de Rosario—Argentina y el
               </div>
             </div>
             <div className="overflow-hidden">
-              <div className="text-reveal translate-y-28 rotate-6">
+              <div className="text-reveal translate-y-20 rotate-6">
                 fundador de Estudio NAP
               </div>
             </div>
