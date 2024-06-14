@@ -68,8 +68,8 @@ export default function Works() {
       >
         <div className="h-full w-full flex items-center justify-center gap-10">
           <h2 className="text-white text-4xl grid">{
-            data && data[img].title.split('\n ').map((word) => (
-              <span>{word}</span>
+            data && data[img].title.split('\n ').map((word, i) => (
+              <span key={i}>{word}</span>
             ))
             }</h2>
           <img className="w-[15rem]" src={data[img].img} alt={title} />
