@@ -5,7 +5,7 @@ import Navbar from "../components/navbar/navbar";
 
 const data = [
   {
-    title: "100 Years Columbia Pictures",
+    title: "100 Years\n Columbia\n Pictures",
     description: "Description",
     img: "https://a.storyblok.com/f/133769/2400x2990/61c001bac1/columbia-pictures-hero.jpg/m/2400x2990/filters:quality(80)",
   },
@@ -20,7 +20,7 @@ const data = [
     img: "https://a.storyblok.com/f/133769/2400x2990/8f08135741/studio-d-hero.jpg/m/2400x2990/filters:quality(80)",
   },
   {
-    title: "Plugged Live Show",
+    title: "Plugged\n Live\n Show",
     description: "Description",
     img: "https://a.storyblok.com/f/133769/2400x2990/fab67b71d9/plugged-live-shows-hero.jpg/m/2400x2990/filters:quality(80)",
   },
@@ -66,8 +66,12 @@ export default function Works() {
         }}
         className="h-screen w-screen fixed"
       >
-        <div className="h-full w-full flex items-center justify-center">
-          <h2 className="text-white max-w-[5rem]">{title}</h2>
+        <div className="h-full w-full flex items-center justify-center gap-10">
+          <h2 className="text-white text-4xl grid">{
+            data && data[img].title.split('\n ').map((word) => (
+              <span>{word}</span>
+            ))
+            }</h2>
           <img className="w-[15rem]" src={data[img].img} alt={title} />
         </div>
       </div>
