@@ -14,7 +14,7 @@ const nextConfig = {
         },
         {
           protocol: "https",
-          hostname: "a.storyblok.com",
+          hostname: "storyblok.com",
           pathname: "**",
         },
       ],
