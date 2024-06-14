@@ -7,22 +7,22 @@ const data = [
   {
     title: "100 Years\n Columbia\n Pictures",
     description: "Description",
-    img: "https://a.storyblok.com/f/133769/2400x2990/61c001bac1/columbia-pictures-hero.jpg/m/2400x2990/filters:quality(80)",
+    img: "./movies.webp",
   },
   {
     title: "Pixelflakes",
     description: "Description",
-    img: "https://a.storyblok.com/f/133769/2400x2990/20d07e6f0c/pixelflakes-hero.jpg/m/2400x2990/filters:quality(80)",
+    img: "./building.webp",
   },
   {
     title: "Studio D",
     description: "Description",
-    img: "https://a.storyblok.com/f/133769/2400x2990/8f08135741/studio-d-hero.jpg/m/2400x2990/filters:quality(80)",
+    img: "./river.webp",
   },
   {
     title: "Plugged\n Live\n Show",
     description: "Description",
-    img: "https://a.storyblok.com/f/133769/2400x2990/fab67b71d9/plugged-live-shows-hero.jpg/m/2400x2990/filters:quality(80)",
+    img: "./dancer.webp",
   },
 ];
 export default function Works() {
