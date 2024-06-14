@@ -44,10 +44,10 @@ export default function Header() {
       id="h-hero"
       className="w-screen h-screen relative container"
     >
-      <div className="heading flex top-[50%] absolute left-[6.25vw] right-[6.25vw] translate-y-[-8.25vw] overflow-hidden">
+      <div className="heading flex top-[50%] translate-y-[-18.25vw] absolute left-[6.25vw] right-[6.25vw] sm:translate-y-[-8.25vw] overflow-hidden">
         <img
           ref={headerContainer}
-          className="w-[34.72vw] ml-auto translate-y-[12rem] rotate-6"
+          className="w-[100%] sm:w-[34.72vw] ml-auto translate-y-[12rem] rotate-6"
           src="https://alitwotimes.com/wp-content/themes/aliali/src/assets/svg/logo-ali-black.svg"
           alt="Ali Ali"
         />
@@ -61,7 +61,7 @@ export default function Header() {
               target="_blank"
               href="mailto:al@gmail.com"
             >
-              <span>juanmarch@gmail.com</span>
+              <span className="text-xs">juanmarch@gmail.com</span>
             </a>
           </div>
 

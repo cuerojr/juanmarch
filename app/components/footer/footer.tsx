@@ -10,7 +10,7 @@ export default function Footer() {
           <li className="w-1/3">
             <p className="text-xs"> Todos los derechos reservados © {new Date().getFullYear()} </p>
           </li>
-          <li className="w-1/3 text-center">
+          <li className="w-1/3 text-center text-xs">
               Rojo Nicolás        
           </li>
           <li className="w-1/3 text-right">

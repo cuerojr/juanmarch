@@ -42,9 +42,21 @@ export default function SectionTitle({ props }: { props: Title }) {
   return (
     <div ref={sectionContainer} className="px-8">
       <div className="head">
-        <h2 ref={titleRef} className="f-8 opacity-0 translate-y-4">
+        <h2
+          ref={titleRef}
+          className="uppercase text-xs opacity-0 translate-y-4"
+        >
           {title}
         </h2>
+        <span 
+          style={{
+            height: "1px",
+            width: "0.833vw",
+            content: "",
+            display: "block",
+            background: "#100f0f",
+          }}
+        ></span>
       </div>
     </div>
   );
