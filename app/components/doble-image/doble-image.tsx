@@ -3,7 +3,7 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-import { CustomEase } from 'gsap/dist/CustomEase'
+import { CustomEase } from "gsap/dist/CustomEase";
 
 function DobleImage({ url1, url2, start1, end1, start2, end2 }: any) {
   const sectionContainer = useRef<HTMLDivElement>(null);
@@ -41,8 +41,14 @@ function DobleImage({ url1, url2, start1, end1, start2, end2 }: any) {
     return () => ctx.revert();
   }, []);
   return (
-    <div ref={sectionContainer} className="grid relative grid-cols-12 gap-2 mb-2 l-e">
-      <div ref={imgContainer1} className={`${start1} ${end1} overflow-hidden ml-auto opacity-0`}>
+    <div
+      ref={sectionContainer}
+      className="grid relative grid-cols-12 gap-2 mb-2 l-e"
+    >
+      <div
+        ref={imgContainer1}
+        className={`${start1} ${end1} overflow-hidden opacity-0`}
+      >
         <a href="#" data-transition="campaign">
           <div className="title absolute">
             <h3>
@@ -50,11 +56,7 @@ function DobleImage({ url1, url2, start1, end1, start2, end2 }: any) {
             </h3>
           </div>
           <div className="thumbnail">
-            <img
-              className="w-[100%]"
-              src={url1}
-              alt="de telecom too silly"
-            />
+            <img className="w-[100%]" src={url1} alt="de telecom too silly" />
             <video className="hidden" preload="none">
               <source
                 src="https://alitwotimes.com/wp-content/uploads/2020/09/du-telecom-too-silly.mp4"
@@ -64,18 +66,20 @@ function DobleImage({ url1, url2, start1, end1, start2, end2 }: any) {
           </div>
         </a>
       </div>
-      <div ref={imgContainer2} className={`${start2} ${end2} overflow-hidden opacity-0`} data-src="20">
-        <a
-          href="#"
-          data-transition="work"
-        >
+      <div
+        ref={imgContainer2}
+        className={`${start2} ${end2} overflow-hidden opacity-0`}
+        data-src="20"
+      >
+        <a href="#" data-transition="work">
           <div className="title absolute">
             <h3>
-              <span> Badya Creative City </span> An Artful Life{" "}
+              <span> Badya Creative City </span> An Artful Life
             </h3>
           </div>
           <div className="thumbnail">
             <img
+              className="w-[100%]"
               src={url2}
               alt="badya life imitates art"
             />

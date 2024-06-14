@@ -12,20 +12,20 @@ function Contact() {
   const textContainer = useRef<HTMLDivElement>(null);
   const headerContainer = useRef<HTMLImageElement>(null);
 
-  const animData = {
-    duration: 2,
-    ease: CustomEase.create(
-      "custom",
-      "M0,0 C0.126,0.382 0.091,0.674 0.249,0.822 0.441,1.002 0.818,1.001 1,1 "
-    ),
-    y: 0,
-    opacity: 1,
-    stagger: 0.02,
-    transform: "rotate(0deg)",
-    delay: 0.3,
-  };
   useEffect(() => {
     let ctx = gsap.context(() => {
+      const animData = {
+        duration: 2,
+        ease: CustomEase.create(
+          "custom",
+          "M0,0 C0.126,0.382 0.091,0.674 0.249,0.822 0.441,1.002 0.818,1.001 1,1 "
+        ),
+        y: 0,
+        opacity: 1,
+        stagger: 0.02,
+        transform: "rotate(0deg)",
+        delay: 0.3,
+      };
       
       const textAnimation = gsap.timeline({ paused: false }).to(".uppercase-reveal", animData);
 
