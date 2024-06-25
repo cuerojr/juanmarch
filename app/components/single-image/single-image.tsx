@@ -1,9 +1,10 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-import { CustomEase } from 'gsap/dist/CustomEase'
+import { CustomEase } from "gsap/dist/CustomEase";
 
 function SingleImage({
   start1,
@@ -66,7 +67,13 @@ function SingleImage({
             </h3>
           </div>
           <div className="thumbnail">
-            <img className="w-[100%]" src={url} alt="cleaning crew" />
+            <Image
+              src={url}
+              alt="cleaning crew"
+              height={420}
+              width={420}
+              sizes="(max-width: 768px) 100vw, 33vw"
+            />
             <video className="hidden" preload="none">
               <source
                 src="https://alitwotimes.com/wp-content/uploads/2023/03/heineken-the-cleaners.mp4"

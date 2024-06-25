@@ -1,8 +1,8 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
-import Footer from "../works/works";
 import { CustomEase } from "gsap/dist/CustomEase";
 
 export default function Header() {
@@ -45,11 +45,14 @@ export default function Header() {
       className="w-screen h-screen relative container"
     >
       <div className="heading flex top-[50%] translate-y-[-18.25vw] absolute left-[6.25vw] right-[6.25vw] sm:translate-y-[-8.25vw] overflow-hidden">
-        <img
+        <Image
           ref={headerContainer}
           className="w-[100%] sm:w-[34.72vw] ml-auto translate-y-[12rem] rotate-6"
           src="https://alitwotimes.com/wp-content/themes/aliali/src/assets/svg/logo-ali-black.svg"
           alt="Ali Ali"
+          sizes="(max-width: 768px) 100vw, 33vw"
+          height={420}
+          width={420}
         />
       </div>
       <div className="absolute inset-0">

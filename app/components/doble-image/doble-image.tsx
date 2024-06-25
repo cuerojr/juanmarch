@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
@@ -40,6 +41,7 @@ function DobleImage({ url1, url2, start1, end1, start2, end2 }: any) {
     });
     return () => ctx.revert();
   }, []);
+
   return (
     <div
       ref={sectionContainer}
@@ -56,7 +58,14 @@ function DobleImage({ url1, url2, start1, end1, start2, end2 }: any) {
             </h3>
           </div>
           <div className="thumbnail">
-            <img className="w-[100%]" src={url1} alt="de telecom too silly" />
+            {/* <img className="w-[100%]" src={url1} alt="de telecom too silly" /> */}
+            <Image
+              src={url1}
+              alt="de telecom too silly"
+              height={420}
+              width={720}
+              sizes="(max-width: 768px) 100vw, 33vw"
+            />
             <video className="hidden" preload="none">
               <source
                 src="https://alitwotimes.com/wp-content/uploads/2020/09/du-telecom-too-silly.mp4"
@@ -78,10 +87,17 @@ function DobleImage({ url1, url2, start1, end1, start2, end2 }: any) {
             </h3>
           </div>
           <div className="thumbnail">
-            <img
+            {/* <img
               className="w-[100%]"
               src={url2}
               alt="badya life imitates art"
+            /> */}
+            <Image
+              src={url2}
+              alt="badya life imitates art"
+              height={420}
+              width={720}
+              sizes="(max-width: 768px) 100vw, 33vw"
             />
             <video className="hidden" preload="none">
               <source

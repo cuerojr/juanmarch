@@ -5,7 +5,8 @@ import { Client } from "@/app/components/client";
 
 import { primaryFont } from "@/lib/fonts";
 import { cn } from "@/lib/utils";
-import Cursor from "./components/custom-cursor/custom-cursor";
+import Cursor from "@/app/components/custom-cursor/custom-cursor";
+import Navbar from "@/app/components/navbar/navbar";
 
 
 export const metadata: Metadata = {
@@ -23,6 +24,7 @@ export default function RootLayout({
       <body>
         <Client />
         <Cursor />
+        <Navbar />
         {children}
       </body>
     </html>

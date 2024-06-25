@@ -6,50 +6,51 @@ import DobleImage from "../doble-image/doble-image";
 const works = [
   {
     type: "singleImage",
-    url: "https://mir-s3-cdn-cf.behance.net/projects/404/e9bc95192613105.Y3JvcCwxNjEwLDEyNjAsMCww.jpg",
+    url: "/movies.webp",
     start: "col-start-1 sm:col-start-4",
     end: "col-end-13 sm:col-end-11",
   },
   {
     type: "dobleImage",
-    url1: "https://mir-s3-cdn-cf.behance.net/projects/404/e9bc95192613105.Y3JvcCwxNjEwLDEyNjAsMCww.jpg",
+    url1: "/building.webp",
     start1: "col-start-1 sm:col-start-3",
     end1: "col-end-13 sm:col-end-9",
-    url2: "https://mir-s3-cdn-cf.behance.net/projects/404/e9bc95192613105.Y3JvcCwxNjEwLDEyNjAsMCww.jpg",
+    url2: "/river.webp",
     start2: "col-start-1 sm:col-start-9",
     end2: "col-end-13 sm:col-end-13",
   },
   {
     type: "singleImage",
-    url: "https://mir-s3-cdn-cf.behance.net/projects/404/e9bc95192613105.Y3JvcCwxNjEwLDEyNjAsMCww.jpg",
+    url: "/dancer.webp",
     start: "col-start-1 sm:col-start-5",
     end: "col-end-13 sm:col-end-10",
   },
   {
     type: "dobleImage",
-    url1: "https://mir-s3-cdn-cf.behance.net/projects/404/e9bc95192613105.Y3JvcCwxNjEwLDEyNjAsMCww.jpg",
+    url1: "/movies.webp",
     start1: "col-start-1 sm:col-start-3",
     end1: "col-end-13 sm:col-end-7",
-    url2: "https://mir-s3-cdn-cf.behance.net/projects/404/e9bc95192613105.Y3JvcCwxNjEwLDEyNjAsMCww.jpg",
+    url2: "/building.webp",
     start2: "col-start-1 sm:col-start-7",
     end2: "col-end-13 sm:col-end-13",
   },
   {
     type: "singleImage",
-    url: "https://mir-s3-cdn-cf.behance.net/projects/404/e9bc95192613105.Y3JvcCwxNjEwLDEyNjAsMCww.jpg",
+    url: "/river.webp",
     start: "col-start-1 sm:col-start-5",
     end: "col-end-13 sm:col-end-10",
   },
   {
     type: "dobleImage",
-    url1: "https://mir-s3-cdn-cf.behance.net/projects/404/e9bc95192613105.Y3JvcCwxNjEwLDEyNjAsMCww.jpg",
+    url1: "/dancer.webp",
     start1: "col-start-1 sm:col-start-3",
     end1: "col-end-13 sm:col-end-8",
-    url2: "https://mir-s3-cdn-cf.behance.net/projects/404/e9bc95192613105.Y3JvcCwxNjEwLDEyNjAsMCww.jpg",
+    url2: "/movies.webp",
     start2: "col-start-1 sm:col-start-8",
     end2: "col-end-13 sm:col-end-13",
   },
 ];
+
 export default function Works() {
   return (
     <section className="min-h-screen container bg-[#fcf6f4] py-[11.806vw] px-[6.25vw]">
