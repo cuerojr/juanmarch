@@ -173,6 +173,7 @@ export default function Works() {
                 src={item.img}
                 alt={item.title}
                 fill
+                quality={80}
                 sizes="100vw"
                 className={`${
                   i === img ? "block" : "hidden"
