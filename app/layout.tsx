@@ -10,8 +10,8 @@ import Navbar from "@/app/components/navbar/navbar";
 
 
 export const metadata: Metadata = {
-  title: "ROJO ARQ",
-  description: "Arquitectura, diseño y construcción.",
+  title: "Design",
+  description: "Super design website",
 };
 
 export default function RootLayout({
