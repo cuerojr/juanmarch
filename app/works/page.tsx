@@ -36,19 +36,20 @@ export default function Works() {
   const titleContainer = useRef<HTMLDivElement>(null);
   const scroller = useGlobal((s) => s.scroller);
   const [img, setImg] = useState<number>(0);
+  //const [prevImg, setPrevImg] = useState<number>(0);
   const [isAnimating, setIsAnimating] = useState<boolean>(false);
 
-  const onScrolled = useCallback(
-    (event: any): any => {
-      if (isAnimating) return;
+  const onScrolled = useCallback((event: any): void => {
 
+      if (isAnimating) return;
       setIsAnimating(true);
+      
+      const imagen = imageRef.current!;
+      imagen.style.backgroundImage = `url('${data[img].img}')`;
+      imagen.style.backgroundPosition= "top";
+      imagen.style.backgroundSize= "cover";
 
       const scrollValue = Math.round(event.deltaY * 0.01);
-      console.log(
-        "🚀 ~ onScrolled ~ scrollValue:",
-        titleContainer.current?.offsetHeight!
-      );
 
       const upperThumbnail = {
         //clipPath: "polygon(0 0, 100% 0, 100% 0, 0 0)",
@@ -70,13 +71,13 @@ export default function Works() {
       );
 
       const upperBg = {
-        //clipPath: "polygon(0 100%, 100% 70%, 100% 100%, 0 100%)",
-        yPercent: 150,
+        clipPath: "polygon(0 0, 100% 0, 100% 0, 0 0)",
+        //yPercent: 150,
         scale: 1.5,
       };
       const downerBg = {
-        //clipPath: "polygon(0 100%, 100% 100%, 100% 100%, 0 60%)",
-        yPercent: -150,
+        clipPath: "polygon(0 0, 100% 0, 100% 0, 0 0)",
+        //yPercent: -150,
         scale: 1.5,
       };
       const tlBg = gsap.timeline({ paused: false });
@@ -94,10 +95,9 @@ export default function Works() {
       });
       tlTitle.set([".img-title"], scrollValue > 0 ? upperTitle : downerTitle);
 
-      setImg((img) => {
+      setImg((img: number) => {
         if (img + scrollValue === data.length) return 0;
         if (img + scrollValue < 0) return data.length - 1;
-
         return img + scrollValue;
       });
 
@@ -108,7 +108,7 @@ export default function Works() {
           "custom",
           "M0,0 C0.126,0.382 0.091,0.674 0.249,0.822 0.441,1.002 0.818,1.001 1,1 "
         ),
-        //clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
+        clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
         yPercent: 0,
         scale: 1,
       };
@@ -135,8 +135,8 @@ export default function Works() {
   }, [onScrolled, isAnimating]);
 
   return (
-    <div className="h-screen w-screen fixed bg-neutral-900">
-      <div className="h-full w-full flex items-center justify-center gap-10">
+    <div className="h-screen w-screen fixed ">
+      <div className="h-full w-full flex items-center justify-center gap-10 bg-neutral-900">
         <div className="overflow-hidden absolute left-[16vw] z-20">
           <h2
             ref={titleContainer}
@@ -165,7 +165,9 @@ export default function Works() {
             ))}
         </div>
 
-        <div className="absolute inset-0 z-10">
+        <div
+          ref={imageRef}
+          className="absolute inset-0 z-10 bg-transparent">
           {data &&
             data.map((item, i) => (
               <Image
@@ -173,10 +175,10 @@ export default function Works() {
                 src={item.img}
                 alt={item.title}
                 fill
-                quality={80}
+                quality={50}
                 sizes="100vw"
                 className={`${
-                  i === img ? "block" : "hidden"
+                  i === img ? "z-20" : "z-10"
                 } img-background object-cover object-top`}
               />
             ))}
