@@ -2,11 +2,17 @@
 
 import Image from "next/image";
 import { useGlobal } from "@/lib/store";
-import { useCallback, useEffect, useRef, useState } from "react";
+import {
+  useCallback,
+  useEffect,
+  useLayoutEffect,
+  useRef,
+  useState,
+} from "react";
 import { gsap } from "gsap";
 import { CustomEase } from "gsap/dist/CustomEase";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-import { Scale } from "lucide-react";
+
 
 const data = [
   {
@@ -32,89 +38,93 @@ const data = [
 ];
 
 export default function Works() {
+
+  const imagesList = useRef<(HTMLImageElement | null)[]>([]);
+  console.log("🚀 ~ Works ~ imagesList:", imagesList)
+
   const imageRef = useRef<HTMLImageElement>(null);
   const titleContainer = useRef<HTMLDivElement>(null);
   const scroller = useGlobal((s) => s.scroller);
   const [img, setImg] = useState<number>(0);
-  //const [prevImg, setPrevImg] = useState<number>(0);
+  
   const [isAnimating, setIsAnimating] = useState<boolean>(false);
 
-  const onScrolled = useCallback((event: any): void => {
-
+  const onScrolled = useCallback(
+    (event: any): void => {
       if (isAnimating) return;
       setIsAnimating(true);
-      
-      const imagen = imageRef.current!;
-      imagen.style.backgroundImage = `url('${data[img].img}')`;
-      imagen.style.backgroundPosition= "top";
-      imagen.style.backgroundSize= "cover";
+
+      //  const imagen = imageRef.current!;
+      //  imagen.style.backgroundImage = `url('${data[img].img}')`;
+      //  imagen.style.backgroundPosition= "top";
+      //  imagen.style.backgroundSize= "cover";
 
       const scrollValue = Math.round(event.deltaY * 0.01);
-
-      const upperThumbnail = {
-        //clipPath: "polygon(0 0, 100% 0, 100% 0, 0 0)",
-        yPercent: -101,
-        scale: 0.5,
-      };
-      const downerThumbnail = {
-        //clipPath: "polygon(0 0, 100% 0, 100% 0, 0 0)",
-        yPercent: 101,
-        scale: 0.5,
-      };
-
+      const nextImg = (img + scrollValue + data.length) % data.length;
+      const prevImg = (img - scrollValue + data.length) % data.length;
+      
+      //thumbnail
       const tl = gsap.timeline({
         paused: false,
       });
-      tl.set(
-        [".img-thumbnail"],
-        scrollValue > 0 ? upperThumbnail : downerThumbnail
-      );
+      tl.set([imagesList.current[prevImg]], {
+        zIndex: 19
+      });
+      tl.set([imagesList.current[img]], {
+        zIndex: 20
+      });
+      tl.set([imagesList.current[nextImg]], {
+        y: scrollValue > 0 ? -420 : 420,
+        zIndex: 21,
+        scale: 1.75
+      });
 
-      const upperBg = {
-        clipPath: "polygon(0 0, 100% 0, 100% 0, 0 0)",
-        //yPercent: 150,
-        scale: 1.5,
-      };
-      const downerBg = {
-        clipPath: "polygon(0 0, 100% 0, 100% 0, 0 0)",
-        //yPercent: -150,
-        scale: 1.5,
-      };
+      //bg
       const tlBg = gsap.timeline({ paused: false });
-      tlBg.set([".img-background"], scrollValue > 0 ? upperBg : downerBg);
+      tlBg.set([".img-background"], {
+        //clipPath: "polygon(0 0, 100% 0, 100% 0, 0 0)",
+        yPercent: scrollValue > 0 ? 150 : -150,
+        scale: 1.5,
+      });
 
-      const upperTitle = {
-        yPercent: 131,
-      };
-      const downerTitle = {
-        yPercent: -101,
-      };
+      //title     
       const tlTitle = gsap.timeline({
         paused: false,
         onComplete: () => setIsAnimating(false),
       });
-      tlTitle.set([".img-title"], scrollValue > 0 ? upperTitle : downerTitle);
-
-      setImg((img: number) => {
-        if (img + scrollValue === data.length) return 0;
-        if (img + scrollValue < 0) return data.length - 1;
-        return img + scrollValue;
+      tlTitle.set([".img-title"], {
+        yPercent: scrollValue > 0 ? 131 : -101,
       });
 
-      const animData = {
+      setImg((prev: number) => {
+        if (prev + scrollValue === data.length) return 0;
+        if (prev + scrollValue < 0) return data.length - 1;
+        return prev + scrollValue;
+      });
+
+      tl.to([imagesList.current[nextImg]], {
         duration: 1,
         delay: 0.3,
         ease: CustomEase.create(
           "custom",
           "M0,0 C0.126,0.382 0.091,0.674 0.249,0.822 0.441,1.002 0.818,1.001 1,1 "
         ),
-        clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
+        y: 0,
+        scale: 1,
+      });
+
+      tlBg.to([".img-background"], {
+        duration: 1,
+        delay: 0.3,
+        ease: CustomEase.create(
+          "custom",
+          "M0,0 C0.126,0.382 0.091,0.674 0.249,0.822 0.441,1.002 0.818,1.001 1,1 "
+        ),
+        //clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
         yPercent: 0,
         scale: 1,
-      };
+      });
 
-      tl.to([".img-thumbnail"], animData);
-      tlBg.to([".img-background"], animData);
       tlTitle.to([".img-title"], {
         duration: 1,
         delay: 0.7,
@@ -126,17 +136,20 @@ export default function Works() {
         yPercent: 0,
       });
     },
-    [isAnimating]
+    [isAnimating, img]
   );
 
   useEffect(() => {
     window.addEventListener("wheel", onScrolled, { passive: true });
     return () => window.removeEventListener("wheel", onScrolled);
-  }, [onScrolled, isAnimating]);
+  }, [onScrolled]);
 
   return (
     <div className="h-screen w-screen fixed ">
-      <div className="h-full w-full flex items-center justify-center gap-10 bg-neutral-900">
+      <div
+        className="h-full w-full flex items-center justify-center gap-10 bg-neutral-900"
+        ref={imageRef}
+      >
         <div className="overflow-hidden absolute left-[16vw] z-20">
           <h2
             ref={titleContainer}
@@ -150,24 +163,25 @@ export default function Works() {
           <p className="m-0 text-xs">Casaca</p>
         </div>
 
-        <div className="overflow-hidden absolute z-20">
+        <div className="overflow-hidden relative z-20 h-[300px] w-[240px]">
           {data &&
             data.map((item, i) => (
               <Image
+                ref={(el) => {
+                  imagesList.current[i] = el;
+                }}
                 key={item.title}
                 src={item.img}
                 alt={item.title}
                 height={420}
                 width={300}
                 sizes="(max-width: 300px) 100vw, 33vw"
-                className={`${i === img ? "block" : "hidden"} img-thumbnail`}
+                className={`${i>0? 'z-[19]':'z-[20]'} img-thumbnail absolute`}
               />
             ))}
         </div>
 
-        <div
-          ref={imageRef}
-          className="absolute inset-0 z-10 bg-transparent">
+        <div className="absolute inset-0 z-10 bg-transparent">
           {data &&
             data.map((item, i) => (
               <Image
@@ -177,9 +191,9 @@ export default function Works() {
                 fill
                 quality={50}
                 sizes="100vw"
-                className={`${
-                  i === img ? "z-20" : "z-10"
-                } img-background object-cover object-top`}
+                className={`
+                  ${i === img ? "z-[21]" : "z-20"} 
+                  img-background object-cover object-top`}
               />
             ))}
         </div>
