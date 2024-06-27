@@ -9,7 +9,7 @@ export default function VideoImg() {
   const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
-    videoRef.current?.play();
+    //videoRef.current?.play();
     let ctx = gsap.context(() => {
         gsap.set(videoRef.current, {
             scale: 0.25,
@@ -20,6 +20,9 @@ export default function VideoImg() {
           //duration: 2.5,
           ease: "linear",
           scale: 1,
+          onStart: () => { 
+            videoRef.current?.play();
+          },          
         });
 
       ScrollTrigger.create({
@@ -27,8 +30,14 @@ export default function VideoImg() {
         start: "top center",
         end: "bottom center",
         animation: titleAnimation,
-        markers: true,
+        markers: false,
         scrub: true,
+        onLeave: () => { 
+            videoRef.current?.pause();
+        },
+        onEnterBack: () => {
+            videoRef.current?.play();
+        }
       });
     });
     return () => ctx.revert();
