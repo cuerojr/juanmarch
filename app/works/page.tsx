@@ -53,7 +53,7 @@ export default function Works() {
        imagen.style.backgroundPosition= "top";
        imagen.style.backgroundSize= "cover";
 
-      const scrollValue = Math.round(event.deltaY * 0.01);
+      const scrollValue = (event.deltaY > 99 || event.deltaY < -99)? Math.round(event.deltaY * 0.01): (Math.round(event.deltaY)>= 0? 1:-1);
       const nextImg = (img + scrollValue + data.length) % data.length;
       const prevImg = (img - scrollValue + data.length) % data.length;
       
