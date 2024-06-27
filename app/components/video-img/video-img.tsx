@@ -9,6 +9,7 @@ export default function VideoImg() {
   const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
+    videoRef.current?.play();
     let ctx = gsap.context(() => {
         gsap.set(videoRef.current, {
             scale: 0.25,
@@ -28,9 +29,6 @@ export default function VideoImg() {
         animation: titleAnimation,
         markers: true,
         scrub: true,
-        onEnter: () => { 
-            videoRef.current?.play();
-        },
       });
     });
     return () => ctx.revert();
@@ -38,7 +36,7 @@ export default function VideoImg() {
 
   return (
     <section ref={videoContainer} className="min-h-screen bg-slate-900">
-      <video ref={videoRef} className="video scale-50">
+      <video ref={videoRef} loop muted className="video scale-50">
         <source
           src="https://player.vimeo.com/progressive_redirect/playback/914803778/rendition/1080p/file.mp4?loc=external&amp;log_user=0&amp;signature=5344c0e4fea63ca54bb433621ca0be7b9470b475583fa68b26de2b6e380a390a"
           type="video/mp4"
