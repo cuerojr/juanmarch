@@ -51,10 +51,10 @@ export default function Works() {
       if (isAnimating) return;
       setIsAnimating(true);
 
-      //  const imagen = imageRef.current!;
-      //  imagen.style.backgroundImage = `url('${data[img].img}')`;
-      //  imagen.style.backgroundPosition= "top";
-      //  imagen.style.backgroundSize= "cover";
+       const imagen = imageRef.current!;
+       imagen.style.backgroundImage = `url('${data[img].img}')`;
+       imagen.style.backgroundPosition= "top";
+       imagen.style.backgroundSize= "cover";
 
       const scrollValue = Math.round(event.deltaY * 0.01);
       const nextImg = (img + scrollValue + data.length) % data.length;
