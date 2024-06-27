@@ -7,7 +7,7 @@ export default function WorksImg() {
         Work
       </h2>
       <div className="grid  grid-cols-12 gap-2 mb-2 z-20">
-        <div className="col-start-2 col-end-8 overflow-hidden">
+        <div className="col-start-1 col-end-13 sm:col-start-2 sm:col-end-8 overflow-hidden mb-5 sm:mb-0">
           <Image
             src={"/movies.webp"}
             alt={"/movies.webp"}
@@ -20,7 +20,7 @@ export default function WorksImg() {
             height={300}
           />
         </div>
-        <div className="col-start-9 col-end-13 overflow-hidden mt-[29vw]">
+        <div className="col-start-1 col-end-13 sm:col-start-9 sm:col-end-13 overflow-hidden mb-5 sm:mb-0 sm:mt-[29vw]">
           <Image
             src={"/building.webp"}
             alt={"/building.webp"}
@@ -33,7 +33,7 @@ export default function WorksImg() {
             height={300}
           />
         </div>
-        <div className="col-start-6 col-end-11 overflow-hidden mt-[11.5vw]">
+        <div className="col-start-1 col-end-13 sm:col-start-6 sm:col-end-11 overflow-hidden mb-5 sm:mb-0 sm:mt-[11.5vw]">
           <Image
             src={"/river.webp"}
             alt={"/river.webp"}
@@ -46,7 +46,7 @@ export default function WorksImg() {
             height={300}
           />
         </div>
-        <div className="col-start-2 col-end-5 overflow-hidden mt-[-10vw]">
+        <div className="col-start-1 col-end-13 sm:col-start-2 sm:col-end-5 overflow-hidden sm:mt-[-10vw]">
           <Image
             src={"/dancer.webp"}
             alt={"/dancer.webp"}

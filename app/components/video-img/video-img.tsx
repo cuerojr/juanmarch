@@ -34,7 +34,7 @@ export default function VideoImg() {
         start: "top center",
         end: "bottom center",
         animation: titleAnimation,
-        markers: true,
+        markers: false,
         scrub: true,
         onLeave: () => { 
             videoRef.current?.pause();
