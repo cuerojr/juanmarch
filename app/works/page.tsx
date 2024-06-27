@@ -40,13 +40,10 @@ const data = [
 export default function Works() {
 
   const imagesList = useRef<(HTMLImageElement | null)[]>([]);
-  console.log("🚀 ~ Works ~ imagesList:", imagesList)
-
   const imageRef = useRef<HTMLImageElement>(null);
   const titleContainer = useRef<HTMLDivElement>(null);
   const scroller = useGlobal((s) => s.scroller);
-  const [img, setImg] = useState<number>(0);
-  
+  const [img, setImg] = useState<number>(0);  
   const [isAnimating, setIsAnimating] = useState<boolean>(false);
 
   const onScrolled = useCallback(
