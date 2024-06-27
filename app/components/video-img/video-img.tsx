@@ -22,12 +22,16 @@ export default function VideoImg() {
           scale: 1,
           onStart: () => { 
             videoRef.current?.play();
-          },          
+            videoContainer.current?.classList.add("sticky", "top-0");
+          }, 
+          onComplete: () => { 
+            videoContainer.current?.classList.remove("sticky", "top-0");
+          },         
         });
 
       ScrollTrigger.create({
         trigger: videoContainer.current,
-        start: "top center",
+        start: "top top",
         end: "bottom center",
         animation: titleAnimation,
         markers: false,
