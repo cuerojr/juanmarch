@@ -31,10 +31,10 @@ export default function VideoImg() {
 
       ScrollTrigger.create({
         trigger: videoContainer.current,
-        start: "top top",
+        start: "top center",
         end: "bottom center",
         animation: titleAnimation,
-        markers: false,
+        markers: true,
         scrub: true,
         onLeave: () => { 
             videoRef.current?.pause();
@@ -48,7 +48,7 @@ export default function VideoImg() {
   }, []);
 
   return (
-    <section ref={videoContainer} className="min-h-screen bg-slate-900">
+    <section ref={videoContainer} className="min-h-screen bg-slate-900 my-[11vw]">
       <video ref={videoRef} loop muted className="video scale-50">
         <source
           src="https://player.vimeo.com/progressive_redirect/playback/914803778/rendition/1080p/file.mp4?loc=external&amp;log_user=0&amp;signature=5344c0e4fea63ca54bb433621ca0be7b9470b475583fa68b26de2b6e380a390a"

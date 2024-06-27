@@ -12,7 +12,7 @@ export default function Home() {
   
   return (
     <main id="a-main" className="h-screen w-screen bg-[#fcf6f4] relative">        
-      <Navbar />
+      {/* <Navbar /> */}
       <Header />  
       <Works />
       <Contact />

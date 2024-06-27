@@ -19,10 +19,10 @@ export default function Cursor() {
       const onMouseEnterLink = (event: any) => {
         const link = event.target;
         if (link?.classList.contains("gsap-title")) {
-          gsap.to(cursor, { scale: 1.5 });
+          gsap.to(cursor, { scale: 1.1 });
           cursorText.style.display = "block";
         } else {
-          gsap.to(cursor, { scale: 1.5 });
+          gsap.to(cursor, { scale: 1.1 });
         }
       };
 
