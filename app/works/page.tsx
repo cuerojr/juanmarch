@@ -5,14 +5,11 @@ import { useGlobal } from "@/lib/store";
 import {
   useCallback,
   useEffect,
-  useLayoutEffect,
   useRef,
   useState,
 } from "react";
 import { gsap } from "gsap";
 import { CustomEase } from "gsap/dist/CustomEase";
-import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-
 
 const data = [
   {
@@ -139,7 +136,7 @@ export default function Works() {
   useEffect(() => {
     window.addEventListener("wheel", onScrolled, { passive: true });
     return () => window.removeEventListener("wheel", onScrolled);
-  }, [onScrolled]);
+  }, [onScrolled, isAnimating, img]);
 
   return (
     <div className="h-screen w-screen fixed ">
@@ -173,7 +170,7 @@ export default function Works() {
                 height={420}
                 width={300}
                 sizes="(max-width: 300px) 100vw, 33vw"
-                className={`${i>0? 'z-[19]':'z-[20]'} img-thumbnail absolute`}
+                className={`${i===0? 'z-[20]':'z-[19]'} img-thumbnail absolute`}
               />
             ))}
         </div>
@@ -186,7 +183,6 @@ export default function Works() {
                 src={item.img}
                 alt={item.title}
                 fill
-                quality={50}
                 sizes="100vw"
                 className={`
                   ${i === img ? "z-[21]" : "z-20"} 
