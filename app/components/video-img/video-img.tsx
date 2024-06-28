@@ -84,9 +84,9 @@ export default function VideoImg() {
   return (
     <section
       ref={videoContainer}
-      className={`h-[${videoContainer.current?.offsetHeight}px] bg-slate-900 relative`}
+      className={`min-h-screen bg-slate-900 relative`}
     >
-      <h2 className={`inset-0 h-[${videoContainer.current?.offsetHeight}px] absolute w-screen flex justify-center items-center z-20 gap-5`}>
+      <h2 className={`inset-0 min-h-screen absolute w-screen flex justify-center items-center z-20 gap-5`}>
         <div ref={playRef} className="title-mask">
           <div className="title-line text-[6rem] text-slate-100">Play</div>
         </div>
@@ -100,7 +100,7 @@ export default function VideoImg() {
           type="video/mp4"
         />
       </video>
-      <div className={`h-[${videoContainer.current?.offsetHeight}px] inset-0 bg-slate-900 opacity-60 absolute`}></div>
+      <div className={`min-h-screen inset-0 bg-slate-900 opacity-60 absolute`}></div>
     </section>
   );
 }
