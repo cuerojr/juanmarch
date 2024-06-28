@@ -1,4 +1,5 @@
 "use client";
+
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
@@ -10,7 +11,7 @@ export default function VideoImg() {
   const reelRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    //videoRef.current?.play();
+    
     let ctx = gsap.context(() => {
       gsap.set(videoRef.current, {
         scale: 0.25,
@@ -81,10 +82,14 @@ export default function VideoImg() {
       className="min-h-screen bg-slate-900 relative"
     >
       <h2 className="absolute w-screen flex justify-center h-screen items-center z-20 translate-y-12 gap-5">
-        <div ref={playRef} className="title-mask">
+        <div 
+          ref={playRef} 
+          className="title-mask">
           <div className="title-line text-[4rem] text-slate-100">Play</div>
         </div>
-        <div ref={reelRef} className="title-mask">
+        <div 
+          ref={reelRef} 
+          className="title-mask">
           <div className="title-line text-[4rem] text-slate-100">Reel</div>
         </div>
       </h2>
