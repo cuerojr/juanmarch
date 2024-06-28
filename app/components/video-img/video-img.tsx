@@ -28,7 +28,7 @@ export default function VideoImg() {
       gsap.timeline({ paused: false, scrollTrigger: {
         trigger: videoContainer.current,
         start: "top top",
-        end: "+=2000",
+        end: "+=1000",
         scrub: true,        
       } })
       .to(playRef.current , {
@@ -38,7 +38,7 @@ export default function VideoImg() {
       gsap.timeline({ paused: false, scrollTrigger: {
         trigger: videoContainer.current,
         start: "top top",
-        end: "+=2000",
+        end: "+=1000",
         scrub: true,        
       } })
       .to(reelRef.current , {
@@ -63,7 +63,7 @@ export default function VideoImg() {
       ScrollTrigger.create({
         trigger: videoContainer.current,
         start: "top top",
-        end: "+=2000",
+        end: "+=1000",
         animation: titleAnimation,
         scrub: true,
         pin: true,
@@ -84,9 +84,9 @@ export default function VideoImg() {
   return (
     <section
       ref={videoContainer}
-      className="min-h-screen bg-slate-900 relative"
+      className={`h-[${videoContainer.current?.offsetHeight}px] bg-slate-900 relative`}
     >
-      <h2 className="absolute w-screen flex justify-center h-screen items-center z-20 translate-y-10 gap-5">
+      <h2 className={`inset-0 h-[${videoContainer.current?.offsetHeight}px] absolute w-screen flex justify-center items-center z-20 gap-5`}>
         <div ref={playRef} className="title-mask">
           <div className="title-line text-[6rem] text-slate-100">Play</div>
         </div>
@@ -100,7 +100,7 @@ export default function VideoImg() {
           type="video/mp4"
         />
       </video>
-      <div className="inset-0 bg-slate-900 opacity-60 absolute"></div>
+      <div className={`h-[${videoContainer.current?.offsetHeight}px] inset-0 bg-slate-900 opacity-60 absolute`}></div>
     </section>
   );
 }
