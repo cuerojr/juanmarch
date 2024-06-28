@@ -68,9 +68,10 @@ export default function Works() {
         zIndex: 20
       });
       tl.set([imagesList.current[nextImg]], {
-        y: scrollValue > 0 ? -420 : 420,
+        y: scrollValue > 0 ? -520 : 520,
         zIndex: 21,
-        scale: 1.75
+        scale: 1.75,
+        clipPath: "polygon(0 0, 100% 0, 100% 10%, 0 10%)"
       });
 
       //bg
@@ -105,6 +106,7 @@ export default function Works() {
         ),
         y: 0,
         scale: 1,
+        clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
       });
 
       tlBg.to([".img-background"], {
@@ -157,7 +159,7 @@ export default function Works() {
           <p className="m-0 text-xs">Casaca</p>
         </div>
 
-        <div className="overflow-hidden relative z-20 h-[300px] w-[240px]">
+        <div className="overflow-hidden relative z-20 h-[380px] w-[280px]">
           {data &&
             data.map((item, i) => (
               <Image

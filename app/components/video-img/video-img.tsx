@@ -84,7 +84,7 @@ export default function VideoImg() {
   return (
     <section
       ref={videoContainer}
-      className={`h-screen flex items-center bg-slate-900 relative`}
+      className={`h-screen flex items-center bg-slate-900 relative overflow-hidden`}
     >
       <h2 className={`inset-0 h-screen absolute w-screen flex justify-center items-center z-20 gap-5`}>
         <div ref={playRef} className="title-mask">

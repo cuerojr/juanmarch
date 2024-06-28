@@ -1,6 +1,5 @@
 'use client'
 
-import Navbar from '@/app/components/navbar/navbar';
 import Header from "@/app/components/header/header";
 import Works from "@/app/components/works/works";
 import Contact from "@/app/components/contact/contact";
@@ -11,8 +10,7 @@ import { Toaster } from '@/components/ui/toaster';
 export default function Home() {  
   
   return (
-    <main id="a-main" className="h-screen w-screen bg-[#fcf6f4] relative">        
-      {/* <Navbar /> */}
+    <main id="a-main" className="h-screen w-screen bg-[#fcf6f4] relative">
       <Header />  
       <Works />
       <Contact />

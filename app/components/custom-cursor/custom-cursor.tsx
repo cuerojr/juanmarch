@@ -19,10 +19,10 @@ export default function Cursor() {
       const onMouseEnterLink = (event: any) => {
         const link = event.target;
         if (link?.classList.contains("gsap-title")) {
-          gsap.to(cursor, { scale: 1.1 });
+          gsap.to(cursor, { scale: 1.4 });
           cursorText.style.display = "block";
         } else {
-          gsap.to(cursor, { scale: 1.1 });
+          gsap.to(cursor, { scale: 1 });
         }
       };
 
@@ -41,11 +41,6 @@ export default function Cursor() {
         button.addEventListener("mouseenter", onMouseEnterLink);
         button.addEventListener("mouseleave", onMouseLeaveLink);
       });
-
-      mission.forEach((mission: HTMLDivElement) => {
-        mission.addEventListener("mouseenter", onMouseEnterLink);
-        mission.addEventListener("mouseleave", onMouseLeaveLink);
-      });
     });
 
     return () => ctx.kill();
@@ -53,7 +48,7 @@ export default function Cursor() {
 
   return (
     <div id="custom-cursor" className="hidden sm:flex custom-cursor">
-      <span className="cursor-text">Ver</span>
+      <span className="cursor-text">View</span>
     </div>
   );
 }
