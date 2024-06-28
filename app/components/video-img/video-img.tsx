@@ -55,6 +55,9 @@ export default function VideoImg() {
           onStart: () => {
             videoRef.current?.play();
           },
+          onComplete: () => { 
+            videoRef.current?.pause();
+          }
         })
 
       ScrollTrigger.create({
@@ -70,6 +73,9 @@ export default function VideoImg() {
         onEnterBack: () => {
           videoRef.current?.play();
         },
+        onLeaveBack: () => {
+          videoRef.current?.pause();
+        }
       });
     });
     return () => ctx.revert();
