@@ -39,11 +39,11 @@ export default function HeaderImg() {
               </div>
             </div>
           </div>
-          <div className="col-start-1 sm:col-start-1 col-end-8 sm:col-end-8 overflow-hidden mb-[6vw]">
+          <div className="col-start-1 sm:col-start-1 col-end-7 sm:col-end-7 overflow-hidden mb-[6vw]">
             <p className="text-slate-100 text-xl">
-              We help experience-driven companies thrive by making their
-              audience feel the refined intricacies of their brand and product
-              in the digital space. Unforgettable journeys start with a click.
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut
+              elementum iaculis nulla, quis egestas massa. In ac enim purus.
+              Maecenas ac fermentum odio. Pellentesque vel congue arcu.
             </p>
           </div>
         </div>
