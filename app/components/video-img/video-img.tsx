@@ -2,54 +2,93 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-import { CustomEase } from "gsap/dist/CustomEase";
 
 export default function VideoImg() {
   const videoContainer = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
+  const playRef = useRef<HTMLDivElement>(null);
+  const reelRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     //videoRef.current?.play();
     let ctx = gsap.context(() => {
-        gsap.set(videoRef.current, {
-            scale: 0.25,
-          });
+      gsap.set(videoRef.current, {
+        scale: 0.25,
+      });
+
+      gsap.set(playRef.current, {
+        x: -150,
+      });
+
+      gsap.set(reelRef.current, {
+        x: 150,
+      });
+
+      gsap.timeline({ paused: false, scrollTrigger: {
+        trigger: videoContainer.current,
+        start: "top top",
+        end: "+=2000",
+        scrub: true,        
+      } })
+      .to(playRef.current , {
+        x: 0,
+        ease: "linear",
+      })
+      gsap.timeline({ paused: false, scrollTrigger: {
+        trigger: videoContainer.current,
+        start: "top top",
+        end: "+=2000",
+        scrub: true,        
+      } })
+      .to(reelRef.current , {
+        x: 0,
+        ease: "linear",
+      });
+
       const titleAnimation = gsap
         .timeline({ paused: false })
         .to(videoRef.current, {
           //duration: 2.5,
           ease: "linear",
           scale: 1,
-          onStart: () => { 
+          onStart: () => {
             videoRef.current?.play();
-            videoContainer.current?.classList.add("sticky", "top-0");
-          }, 
-          onComplete: () => { 
-            videoContainer.current?.classList.remove("sticky", "top-0");
-          },         
-        });
+          },
+        })
 
       ScrollTrigger.create({
         trigger: videoContainer.current,
-        start: "top center",
-        end: "bottom center",
+        start: "top top",
+        end: "+=2000",
         animation: titleAnimation,
-        markers: false,
+        markers: true,
         scrub: true,
-        onLeave: () => { 
-            videoRef.current?.pause();
+        pin: true,
+        onLeave: () => {
+          videoRef.current?.pause();
         },
         onEnterBack: () => {
-            videoRef.current?.play();
-        }
+          videoRef.current?.play();
+        },
       });
     });
     return () => ctx.revert();
   }, []);
 
   return (
-    <section ref={videoContainer} className="min-h-screen bg-slate-900 my-[11vw]">
-      <video ref={videoRef} loop muted className="video scale-50">
+    <section
+      ref={videoContainer}
+      className="min-h-screen bg-slate-900 relative"
+    >
+      <h2 className="absolute w-screen flex justify-center h-screen items-center z-20 translate-y-12 gap-5">
+        <div ref={playRef} className="title-mask">
+          <div className="title-line text-[4rem] text-slate-100">Play</div>
+        </div>
+        <div ref={reelRef} className="title-mask">
+          <div className="title-line text-[4rem] text-slate-100">Reel</div>
+        </div>
+      </h2>
+      <video ref={videoRef} loop muted className="video scale-50 z-10">
         <source
           src="https://player.vimeo.com/progressive_redirect/playback/914803778/rendition/1080p/file.mp4?loc=external&amp;log_user=0&amp;signature=5344c0e4fea63ca54bb433621ca0be7b9470b475583fa68b26de2b6e380a390a"
           type="video/mp4"
