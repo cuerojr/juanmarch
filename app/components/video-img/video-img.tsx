@@ -18,11 +18,11 @@ export default function VideoImg() {
       });
 
       gsap.set(playRef.current, {
-        x: -150,
+        x: -200,
       });
 
       gsap.set(reelRef.current, {
-        x: 150,
+        x: 200,
       });
 
       gsap.timeline({ paused: false, scrollTrigger: {
@@ -62,7 +62,6 @@ export default function VideoImg() {
         start: "top top",
         end: "+=2000",
         animation: titleAnimation,
-        markers: true,
         scrub: true,
         pin: true,
         onLeave: () => {
@@ -81,16 +80,12 @@ export default function VideoImg() {
       ref={videoContainer}
       className="min-h-screen bg-slate-900 relative"
     >
-      <h2 className="absolute w-screen flex justify-center h-screen items-center z-20 translate-y-12 gap-5">
-        <div 
-          ref={playRef} 
-          className="title-mask">
-          <div className="title-line text-[4rem] text-slate-100">Play</div>
+      <h2 className="absolute w-screen flex justify-center h-screen items-center z-20 translate-y-10 gap-5">
+        <div ref={playRef} className="title-mask">
+          <div className="title-line text-[6rem] text-slate-100">Play</div>
         </div>
-        <div 
-          ref={reelRef} 
-          className="title-mask">
-          <div className="title-line text-[4rem] text-slate-100">Reel</div>
+        <div ref={reelRef} className="title-mask">
+          <div className="title-line text-[6rem] text-slate-100">Reel</div>
         </div>
       </h2>
       <video ref={videoRef} loop muted className="video scale-50 z-10">
@@ -99,6 +94,7 @@ export default function VideoImg() {
           type="video/mp4"
         />
       </video>
+      <div className="inset-0 bg-slate-900 opacity-60 absolute"></div>
     </section>
   );
 }
