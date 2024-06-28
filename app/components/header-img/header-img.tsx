@@ -5,24 +5,24 @@ export default function HeaderImg() {
     <header className="min-h-screen relative overflow-hidden">
       <div className="px-[7.7vw]">
         <div className="grid relative grid-cols-12 gap-2 mb-2 z-20">
-          <div className="col-start-1 col-end-8 overflow-hidden pt-[10rem] pl-[10px]">
+          <div className="col-start-1 col-end-8 overflow-hidden pt-[30vw] pl-[10px]">
             <div className="text-mask">
-              <div className="block text-start relative text-sm text-slate-100 ">
+              <div className="block text-start relative text-xl text-slate-100 ">
                 Lorem ipsum dolor sit amet, consectetur
               </div>
             </div>
             <div className="text-mask">
-              <div className="block text-start relative text-sm text-slate-100">
+              <div className="block text-start relative text-xl text-slate-100">
                 adipiscing elit. Sed vel erat dui.
               </div>
             </div>
             <div className="text-mask">
-              <div className="block text-start relative text-sm text-slate-100">
+              <div className="block text-start relative text-xl text-slate-100">
                 Nulla facilisi. Integer justo quam.
               </div>
             </div>
           </div>
-          <div className="col-start-1 col-end-13 overflow-hidden">
+          <div className="col-start-1 col-end-13 overflow-hidden mt-[8vw] mb-[6.8vw]">
             <div className="text-mask">
               <div className="block text-left relative text-[16vw] leading-none text-slate-100 ">
                 Experiencia
@@ -39,7 +39,13 @@ export default function HeaderImg() {
               </div>
             </div>
           </div>
-          <div className="col-start-1 sm:col-start-4 col-end-13 sm:col-end-11 overflow-hidden"></div>
+          <div className="col-start-1 sm:col-start-1 col-end-8 sm:col-end-8 overflow-hidden mb-[6vw]">
+            <p className="text-slate-100 text-xl">
+              We help experience-driven companies thrive by making their
+              audience feel the refined intricacies of their brand and product
+              in the digital space. Unforgettable journeys start with a click.
+            </p>
+          </div>
         </div>
       </div>
       <Image
