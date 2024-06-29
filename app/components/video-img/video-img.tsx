@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useLayoutEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 
@@ -47,7 +47,7 @@ export default function VideoImg() {
       });
 
       const titleAnimation = gsap
-        .timeline({ paused: false })
+        .timeline({ paused: true })
         .to(videoRef.current, {
           //duration: 2.5,
           ease: "linear",

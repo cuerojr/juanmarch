@@ -15,22 +15,21 @@ export default function WorksImg() {
 
   useEffect(() => {
     let ctx = gsap.context(() => {
-
       // gsap.set(image1Ref.current, {
       //   //y: Math.floor(Math.random() * (Math.floor(100) - Math.ceil(-100)) + Math.ceil(-100)),
       // y:-70
       // });
-      console.log(Math.floor(Math.random() * (Math.floor(100) - Math.ceil(-100)) + Math.ceil(-100)))
-      gsap.set(image2Ref.current, {
-        y: 100,
-      });
-      gsap.set(image3Ref.current, {
-        y: -200,
-      });
-      gsap.set(image4Ref.current, {
-        y: 100,
-      });
-  
+
+      // gsap.set(image2Ref.current, {
+      //   y: 0,
+      // });
+      // gsap.set(image3Ref.current, {
+      //   y: 0,
+      // });
+      // gsap.set(image4Ref.current, {
+      //   y: 0,
+      // });
+
       // const image1Tl = gsap.timeline({paused: true, scrollTrigger: {
       //   trigger: imagesContainer.current,
       //   start: "top center",
@@ -41,41 +40,52 @@ export default function WorksImg() {
       //   //y: Math.floor(Math.random() * (Math.floor(100) - Math.ceil(-100)) + Math.ceil(-100)),
       //   y: 70
       // })
-      const image2Tl = gsap.timeline({paused: true, scrollTrigger: {
+
+      const image2Tl = gsap
+        .timeline({
+          paused: true,
+        })
+        .to(image2Ref.current, {
+          y: 100,
+          duration: 6,
+        });
+
+      ScrollTrigger.create({
         trigger: imagesContainer.current,
         start: "top center",
         end: `bottom center`,
         scrub: true,
-      }}).to(image2Ref.current, {
-        y: -100,
-      })
-      const image3Tl = gsap.timeline({paused: true, scrollTrigger: {
-        trigger: imagesContainer.current,
-        start: "top center",
-        end: `bottom center`,
-        scrub: true,
-      }}).to(image3Ref.current, {
-        y: 10,
+        animation: image2Tl,
       });
-      const image4Tl = gsap.timeline({paused: true, scrollTrigger: {
+
+      const image3Tl = gsap
+        .timeline({
+          paused: true,
+        })
+        .to(image3Ref.current, {
+          y: 130,
+          duration: 6,
+        });
+
+      ScrollTrigger.create({
         trigger: imagesContainer.current,
         start: "center center",
         end: `bottom center`,
         scrub: true,
-      }}).to(image4Ref.current, {
-        y: -100,
-      })
+        animation: image3Tl,
+      });
+
     });
 
     return () => ctx.revert();
-  }, []);
+  }, [imagesContainer]);
 
   return (
-    <section ref={imagesContainer} className="min-h-screen px-[7.7vw] py-[14.30vw]">
+    <section className="min-h-screen px-[7.7vw] py-[14.30vw]">
       <h2 className="block text-left  text-[16vw] leading-none text-slate-900 ml-[7.7vw] mb-[6.8vw]">
         Work
       </h2>
-      <div className="grid  grid-cols-12 gap-2 mb-2 z-20">
+      <div ref={imagesContainer} className="grid grid-cols-12 gap-2 mb-2 z-20">
         <div
           // ref={image1Ref}
           className="col-start-1 col-end-13 sm:col-start-2 sm:col-end-8 overflow-hidden mb-5 sm:mb-0"
@@ -87,7 +97,7 @@ export default function WorksImg() {
               sizes="100vw"
               className="w-full h-auto"
               width={500}
-              height={300}
+              height={620}
             />
             <div>
               <p className="mt-2 text-sm">
@@ -101,14 +111,16 @@ export default function WorksImg() {
           ref={image2Ref}
           className="col-start-1 col-end-13 sm:col-start-9 sm:col-end-13 overflow-hidden mb-5 sm:mb-0 sm:mt-[29vw]"
         >
-          <Image
-            src={"/building.webp"}
-            alt={"/building.webp"}
-            sizes="100vw"
-            className="w-full h-auto"
-            width={500}
-            height={300}
-          />
+          <div className="overflow-hidden">
+            <Image
+              src={"/building.webp"}
+              alt={"/building.webp"}
+              sizes="100vw"
+              className="w-full h-auto img-grow"
+              width={500}
+              height={620}
+            />
+          </div>
           <div>
             <p className="mt-2 text-sm">
               <b>Lorem Ipsum</b>
@@ -124,9 +136,9 @@ export default function WorksImg() {
             src={"/river.webp"}
             alt={"/river.webp"}
             sizes="100vw"
-            className="w-full h-auto"
+            className="w-full h-auto img-grow"
             width={500}
-            height={300}
+            height={620}
           />
           <div>
             <p className="mt-2 text-sm">
@@ -140,12 +152,12 @@ export default function WorksImg() {
           className="col-start-1 col-end-13 sm:col-start-2 sm:col-end-5 overflow-hidden sm:mt-[-10vw]"
         >
           <Image
-            className="w-full h-auto"
+            className="w-full h-auto img-grow"
             src={"/dancer.webp"}
             alt={"/dancer.webp"}
             sizes="100vw"
             width={500}
-            height={300}
+            height={620}
           />
           <div>
             <p className="mt-2 text-sm">
