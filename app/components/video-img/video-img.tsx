@@ -65,6 +65,7 @@ export default function VideoImg() {
         start: "top top",
         end: "+=1000",
         animation: titleAnimation,
+        markers: true,
         scrub: true,
         pin: true,
         onLeave: () => {
