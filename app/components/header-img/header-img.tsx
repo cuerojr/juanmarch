@@ -24,7 +24,7 @@ export default function HeaderImg() {
           </div>
           <div className="col-start-1 col-end-13 overflow-hidden mt-[8vw] mb-[6.8vw]">
             <div className="text-mask">
-              <div className="block text-left relative text-[16vw] leading-none text-slate-100 leading-tight">
+              <div className="block text-left relative text-[16vw] text-slate-100 leading-tight">
                 Experiencia
               </div>
             </div>
