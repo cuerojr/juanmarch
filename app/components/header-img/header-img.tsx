@@ -29,12 +29,12 @@ export default function HeaderImg() {
               </div>
             </div>
             <div className="text-mask">
-              <div className="block text-left relative text-[16vw] leading-none text-slate-100 leading-tight">
+              <div className="block text-left relative text-[16vw] text-slate-100 leading-tight">
                 Diseño
               </div>
             </div>
             <div className="text-mask">
-              <div className="block text-left relative text-[16vw] leading-none text-slate-100 leading-tight">
+              <div className="block text-left relative text-[16vw] text-slate-100 leading-tight">
                 Digital
               </div>
             </div>
