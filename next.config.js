@@ -14,7 +14,7 @@ const nextConfig = {
         },
         {
           protocol: "https",
-          hostname: "mir-s3-cdn-cf.behance.net",
+          hostname: "a.storyblok.com",
           pathname: "**",
         }
       ],

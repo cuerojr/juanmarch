@@ -33,7 +33,7 @@ export default function FooterImg() {
         </ul>
         <ul className="nav text-slate-100 text-xs col-start-4 col-end-6">
           <li className="item">
-            <a href="/work" className="footer-link">
+            <a href="/works" className="footer-link">
               Work
             </a>
           </li>

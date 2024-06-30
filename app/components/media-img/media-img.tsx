@@ -1,9 +1,74 @@
+"use client"
+
+import Image from "next/image";
+import { useEffect, useRef } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import { CustomEase } from "gsap/dist/CustomEase";
+
 export default function MediaNews() {
+  const image0Ref = useRef<HTMLImageElement>(null);
+  const image1Ref = useRef<HTMLVideoElement>(null);
+  const image2Ref = useRef<HTMLImageElement>(null);
+  const image3Ref = useRef<HTMLImageElement>(null);
+  const image4Ref = useRef<HTMLVideoElement>(null);
+  const textRef = useRef<HTMLDivElement>(null);
+  const newsContainer = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    let ctx = gsap.context(() => { 
+      gsap.set(textRef.current, {
+        y: 200
+      });
+
+      const leftImagesAnimation = gsap
+        .timeline({ paused: false }).to([image1Ref.current, image3Ref.current], {
+          x: -300
+        });
+
+      const rightImagesAnimation = gsap
+        .timeline({ paused: false }).to([image2Ref.current, image4Ref.current], {
+          x: 300
+        });
+
+      const textsAnimation = gsap
+        .timeline({ paused: false }).to(textRef.current, {
+          y: -50
+        });
+
+        ScrollTrigger.create({
+          trigger: newsContainer.current,
+          start: "top center",
+          end: `bottom center`,
+          animation: leftImagesAnimation,
+          scrub: true,
+        });
+
+        ScrollTrigger.create({
+          trigger: newsContainer.current,
+          start: "top center",
+          end: `bottom center`,
+          animation: rightImagesAnimation,
+          scrub: true,
+        });
+
+        ScrollTrigger.create({
+          trigger: newsContainer.current,
+          start: "center center",
+          end: `bottom center`,
+          animation: textsAnimation,
+          scrub: true,
+        });
+    });
+    return () => ctx.revert();
+  }, []);
+
+  
   return (
-    <section className="min-h-screen bg-slate-50 py-[13.8vw]">
+    <section ref={newsContainer} className="min-h-screen bg-slate-50 py-[13.8vw]">
       <ul className="media-wrapper relative">
         <li className="media w-[26vw] m-auto">
-          <img
+          <Image ref={image0Ref}
             src="https://a.storyblok.com/f/133769/748x1278/5784aa7150/home-news-1.jpg/m/1200x2050/filters:quality(90)"
             width="748"
             height="1278"
@@ -13,8 +78,8 @@ export default function MediaNews() {
             id="3643666"
           />
         </li>
-        <li className="media w-[26vw] absolute left-[19vw] top-[13vw]">
-          <video loop muted autoPlay>
+        <li className="media w-[26vw] absolute left-[29vw] top-[13vw]">
+          <video ref={image1Ref} loop muted autoPlay>
             <source
               src="https://a.storyblok.com/f/133769/x/9c433c7aac/home-news-diesel-be-a-follower.mp4"
               type="video/mp4"
@@ -22,7 +87,7 @@ export default function MediaNews() {
           </video>
         </li>
         <li className="media w-[12vw] absolute left-[58vw] top-[4vw]">
-          <img
+          <Image ref={image2Ref}
             src="https://a.storyblok.com/f/133769/348x494/21becfd449/home-news-3.jpg/m/1200x1703/filters:quality(90)"
             width="348"
             height="494"
@@ -33,7 +98,7 @@ export default function MediaNews() {
           />
         </li>
         <li className="media w-[26vw] absolute left-[19vw] top-[39vw]">
-          <img
+          <Image ref={image3Ref}
             src="https://a.storyblok.com/f/133769/758x508/8a1ff60d00/home-news-4.jpg/m/1200x804/filters:quality(90)"
             width="758"
             height="508"
@@ -44,7 +109,7 @@ export default function MediaNews() {
           />
         </li>
         <li className="media w-[26vw] absolute left-[54vw] top-[40vw]">
-          <video loop muted autoPlay>
+          <video ref={image4Ref} loop muted autoPlay>
             <source
               src="https://a.storyblok.com/f/133769/x/88b4bf7989/news-rino-pelle.mp4"
               type="video/mp4"
@@ -53,7 +118,7 @@ export default function MediaNews() {
           </video>
         </li>
       </ul>
-      <div className="text w-[40.5vw] m-auto text-center">
+      <div ref={textRef} className="text w-[40.5vw] m-auto text-center">
         <h2 className="label flex items justify-center gap-1">
           <svg
             viewBox="0 0 12 12"
