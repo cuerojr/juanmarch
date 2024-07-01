@@ -79,7 +79,7 @@ export default function MediaNews() {
           />
         </li>
         <li className="media w-[26vw] absolute left-[29vw] top-[13vw]">
-          <video ref={image1Ref} loop muted autoPlay>
+          <video ref={image1Ref} loop muted>
             <source
               src="https://a.storyblok.com/f/133769/x/9c433c7aac/home-news-diesel-be-a-follower.mp4"
               type="video/mp4"
@@ -109,7 +109,7 @@ export default function MediaNews() {
           />
         </li>
         <li className="media w-[26vw] absolute left-[54vw] top-[40vw]">
-          <video ref={image4Ref} loop muted autoPlay>
+          <video ref={image4Ref} loop muted>
             <source
               src="https://a.storyblok.com/f/133769/x/88b4bf7989/news-rino-pelle.mp4"
               type="video/mp4"

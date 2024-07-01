@@ -22,7 +22,7 @@ export default function HeaderImg() {
               </div>
             </div>
           </div>
-          <div className="col-start-1 col-end-13 overflow-hidden mt-[8vw] mb-[6.8vw]">
+          <h1 className="col-start-1 col-end-13 overflow-hidden mt-[8vw] mb-[6.8vw]">
             <div className="text-mask">
               <div className="block text-left relative text-[16vw] text-slate-100 leading-tight">
                 Experiencia
@@ -38,7 +38,7 @@ export default function HeaderImg() {
                 Digital
               </div>
             </div>
-          </div>
+          </h1>
           <div className="col-start-1 sm:col-start-1 col-end-7 sm:col-end-7 overflow-hidden mb-[6vw]">
             <p className="text-slate-100 text-xl leading-tight">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut
@@ -51,18 +51,15 @@ export default function HeaderImg() {
       <Image
         src={`/city.webp`}
         alt={``}
-        // //height={420}
-        // //width={300}
-        // fill
-        // sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         className={`absolute top-0 left-0 right-0 z-10`}
         sizes="100vw"
         style={{
           width: "100%",
           height: "auto",
         }}
+        loading="lazy"
         width={500}
-        height={300}
+        height={800}
       />
     </header>
   );
