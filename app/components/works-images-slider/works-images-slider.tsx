@@ -23,24 +23,26 @@ function WorksImagesSlider() {
 
       ScrollTrigger.create({
         trigger: imageSliderContainer.current,
-        start: "top top",
-        end: `bottom top`,
+        start: "top center",
+        end: `bottom center`,
         animation: topSliderAnimation,
         scrub: true,
+        markers: true
       });
 
       const bottomSliderAnimation = gsap
         .timeline({ paused: false })
         .to([bottomSlider.current], {
-          x: 40,
+          x: 10,
         });
 
       ScrollTrigger.create({
         trigger: imageSliderContainer.current,
-        start: "top top",
-        end: `bottom top`,
+        start: "top center",
+        end: `bottom center`,
         animation: bottomSliderAnimation,
         scrub: true,
+        markers: true
       });
 
     });
