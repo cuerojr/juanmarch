@@ -27,7 +27,6 @@ function WorksImagesSlider() {
         end: `bottom center`,
         animation: topSliderAnimation,
         scrub: true,
-        markers: true
       });
 
       const bottomSliderAnimation = gsap
@@ -42,7 +41,6 @@ function WorksImagesSlider() {
         end: `bottom center`,
         animation: bottomSliderAnimation,
         scrub: true,
-        markers: true
       });
 
     });
