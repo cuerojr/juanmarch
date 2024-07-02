@@ -1,8 +1,40 @@
+"use client"
+
 import Image from "next/image";
+import { useEffect, useRef } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 
 export default function HeaderImg() {
+  const headerContainer = useRef<HTMLDivElement>(null);
+  const backgroundHeader = useRef<HTMLImageElement>(null);
+
+  useEffect(() => {
+    let ctx = gsap.context(() => {
+      gsap.set([backgroundHeader.current], {
+        top: 0,
+      });
+      const backgroundHeaderAnimation = gsap
+        .timeline({ paused: false })
+        .to([backgroundHeader.current], {
+          top: -100,
+        });
+
+      ScrollTrigger.create({
+        trigger: headerContainer.current,
+        start: "top top",
+        end: `bottom top`,
+        animation: backgroundHeaderAnimation,
+        scrub: true,
+        //markers: true,
+      });
+
+    });
+    return () => ctx.revert();
+  }, []);
+
   return (
-    <header className="min-h-screen relative overflow-hidden">
+    <header ref={headerContainer} className="min-h-screen relative overflow-hidden">
       <div className="px-[7.7vw]">
         <div className="grid relative grid-cols-12 gap-2 mb-2 z-20">
           <div className="col-start-1 col-end-8 overflow-hidden pt-[30vw] pl-[10px]">
@@ -49,6 +81,7 @@ export default function HeaderImg() {
         </div>
       </div>
       <Image
+        ref={backgroundHeader}
         src={`/city.webp`}
         alt={``}
         className={`absolute top-0 left-0 right-0 z-10`}

@@ -23,17 +23,17 @@ export default function MediaNews() {
 
       const leftImagesAnimation = gsap
         .timeline({ paused: false }).to([image1Ref.current, image3Ref.current], {
-          x: -300
+          x: -150
         });
 
       const rightImagesAnimation = gsap
         .timeline({ paused: false }).to([image2Ref.current, image4Ref.current], {
-          x: 300
+          x: 150
         });
 
       const textsAnimation = gsap
         .timeline({ paused: false }).to(textRef.current, {
-          y: -50
+          y: -30
         });
 
         ScrollTrigger.create({
