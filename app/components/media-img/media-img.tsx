@@ -4,9 +4,10 @@ import Image from "next/image";
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-import { CustomEase } from "gsap/dist/CustomEase";
+import { useMediaQuery } from "@mantine/hooks";
 
 export default function MediaNews() {
+  const isSmallScreen = useMediaQuery("(max-width: 640px)");
   const image0Ref = useRef<HTMLImageElement>(null);
   const image1Ref = useRef<HTMLImageElement>(null);
   const image2Ref = useRef<HTMLImageElement>(null);
@@ -17,54 +18,57 @@ export default function MediaNews() {
 
   useEffect(() => {
     let ctx = gsap.context(() => {
-      gsap.set(textRef.current, {
-        y: 200,
-      });
-
-      const leftImagesAnimation = gsap
-        .timeline({ paused: false })
-        .to([image1Ref.current, image3Ref.current], {
-          x: -150,
+      
+        gsap.set(textRef.current, {
+          y: 200,
         });
 
-      const rightImagesAnimation = gsap
-        .timeline({ paused: false })
-        .to([image2Ref.current, image4Ref.current], {
-          x: 150,
+        const leftImagesAnimation = gsap
+          .timeline({ paused: false })
+          .to([image1Ref.current, image3Ref.current], {
+            x: -150,
+          });
+
+        const rightImagesAnimation = gsap
+          .timeline({ paused: false })
+          .to([image2Ref.current, image4Ref.current], {
+            x: 150,
+          });
+
+        const textsAnimation = gsap
+          .timeline({ paused: false })
+          .to(textRef.current, {
+            y: -30,
+          });
+
+        ScrollTrigger.create({
+          trigger: newsContainer.current,
+          start: "top center",
+          end: `bottom center`,
+          animation: leftImagesAnimation,
+          scrub: true,
         });
 
-      const textsAnimation = gsap
-        .timeline({ paused: false })
-        .to(textRef.current, {
-          y: -30,
+        ScrollTrigger.create({
+          trigger: newsContainer.current,
+          start: "top center",
+          end: `bottom center`,
+          animation: rightImagesAnimation,
+          scrub: true,
         });
 
-      ScrollTrigger.create({
-        trigger: newsContainer.current,
-        start: "top center",
-        end: `bottom center`,
-        animation: leftImagesAnimation,
-        scrub: true,
-      });
-
-      ScrollTrigger.create({
-        trigger: newsContainer.current,
-        start: "top center",
-        end: `bottom center`,
-        animation: rightImagesAnimation,
-        scrub: true,
-      });
-
-      ScrollTrigger.create({
-        trigger: newsContainer.current,
-        start: "center center",
-        end: `bottom center`,
-        animation: textsAnimation,
-        scrub: true,
-      });
+        ScrollTrigger.create({
+          trigger: newsContainer.current,
+          start: "center center",
+          end: `bottom center`,
+          animation: textsAnimation,
+          scrub: true,
+        });
+      
     });
+
     return () => ctx.revert();
-  }, []);
+  }, [isSmallScreen]);
 
   return (
     <section
@@ -83,7 +87,7 @@ export default function MediaNews() {
             sizes="(max-width: 1024px) 440px, (max-width: 1280px) 700px, 1200px"
           />
         </li>
-        <li className="media w-[22vw] absolute left-[29vw] top-[13vw]">
+        <li className={`media w-[22vw] absolute left-[29vw] top-[13vw]`}>
           {/* <video ref={image1Ref} loop muted>
             <source
               src="https://a.storyblok.com/f/133769/x/9c433c7aac/home-news-diesel-be-a-follower.mp4"
@@ -113,8 +117,8 @@ export default function MediaNews() {
               height: "auto",
             }}
             loading="lazy"
-        // width={500}
-        // height={800}
+            // width={500}
+            // height={800}
           />
         </li>
         <li className="media w-[18vw] absolute left-[19vw] top-[45vw]">

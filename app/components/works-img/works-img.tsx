@@ -5,8 +5,10 @@ import { useEffect, useRef } from "react";
 
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import { useMediaQuery } from "@mantine/hooks";
 
 export default function WorksImg() {
+  const isSmallScreen = useMediaQuery("(max-width: 640px)");
   const imagesContainer = useRef<HTMLDivElement>(null);
   // const image1Ref = useRef<HTMLImageElement>(null);
   const image2Ref = useRef<HTMLImageElement>(null);
@@ -15,70 +17,45 @@ export default function WorksImg() {
 
   useEffect(() => {
     let ctx = gsap.context(() => {
-      // gsap.set(image1Ref.current, {
-      //   //y: Math.floor(Math.random() * (Math.floor(100) - Math.ceil(-100)) + Math.ceil(-100)),
-      // y:-70
-      // });
+      if (!isSmallScreen) {
+        const image2Tl = gsap
+          .timeline({
+            paused: true,
+          })
+          .to(image2Ref.current, {
+            y: 100,
+            duration: 6,
+          });
 
-      // gsap.set(image2Ref.current, {
-      //   y: 0,
-      // });
-      // gsap.set(image3Ref.current, {
-      //   y: 0,
-      // });
-      // gsap.set(image4Ref.current, {
-      //   y: 0,
-      // });
-
-      // const image1Tl = gsap.timeline({paused: true, scrollTrigger: {
-      //   trigger: imagesContainer.current,
-      //   start: "top center",
-      //   end: `bottom bottom`,
-      //   markers: false,
-      //   scrub: true,
-      // }}).to(image1Ref.current, {
-      //   //y: Math.floor(Math.random() * (Math.floor(100) - Math.ceil(-100)) + Math.ceil(-100)),
-      //   y: 70
-      // })
-
-      const image2Tl = gsap
-        .timeline({
-          paused: true,
-        })
-        .to(image2Ref.current, {
-          y: 100,
-          duration: 6,
+        ScrollTrigger.create({
+          trigger: imagesContainer.current,
+          start: "top center",
+          end: `bottom center`,
+          scrub: true,
+          animation: image2Tl,
         });
 
-      ScrollTrigger.create({
-        trigger: imagesContainer.current,
-        start: "top center",
-        end: `bottom center`,
-        scrub: true,
-        animation: image2Tl,
-      });
+        const image3Tl = gsap
+          .timeline({
+            paused: true,
+          })
+          .to(image3Ref.current, {
+            y: 130,
+            duration: 6,
+          });
 
-      const image3Tl = gsap
-        .timeline({
-          paused: true,
-        })
-        .to(image3Ref.current, {
-          y: 130,
-          duration: 6,
+        ScrollTrigger.create({
+          trigger: imagesContainer.current,
+          start: "center center",
+          end: `bottom center`,
+          scrub: true,
+          animation: image3Tl,
         });
-
-      ScrollTrigger.create({
-        trigger: imagesContainer.current,
-        start: "center center",
-        end: `bottom center`,
-        scrub: true,
-        animation: image3Tl,
-      });
-
+      }
     });
 
     return () => ctx.revert();
-  }, [imagesContainer]);
+  }, [imagesContainer, isSmallScreen]);
 
   return (
     <section className="min-h-screen px-[7.7vw] py-[14.30vw]">

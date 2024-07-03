@@ -5,36 +5,40 @@ import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { CustomEase } from "gsap/dist/CustomEase";
+import { useMediaQuery } from "@mantine/hooks";
 
 export default function FooterImg() {
+  const isSmallScreen = useMediaQuery("(max-width: 640px)");
   const footerContainer = useRef<HTMLDivElement>(null);
   const footerContent = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     let ctx = gsap.context(() => {
-      gsap.set([footerContent.current], {
-        y: -300,
-      });
-
-      const backgroundHeaderAnimation = gsap
-        .timeline({ paused: false })
-        .to([footerContent.current], {
-          y: 0,
-          duration: 3,
-          ease: "none",
+      if (!isSmallScreen) {
+        gsap.set([footerContent.current], {
+          y: -300,
         });
-
-      ScrollTrigger.create({
-        trigger: footerContainer.current,
-        start: "-250px center",
-        end: `center center`,
-        animation: backgroundHeaderAnimation,
-        scrub: true,
-      });
+  
+        const backgroundHeaderAnimation = gsap
+          .timeline({ paused: false })
+          .to([footerContent.current], {
+            y: 0,
+            duration: 3,
+            ease: "none",
+          });
+  
+        ScrollTrigger.create({
+          trigger: footerContainer.current,
+          start: "-250px center",
+          end: `center center`,
+          animation: backgroundHeaderAnimation,
+          scrub: true,
+        });
+      }
     });
     return () => ctx.revert();
 
-  }, []);
+  }, [isSmallScreen]);
 
   return (
     <section ref={footerContainer} className="min-h-screen bg-slate-950 z-10 overflow-hidden">
