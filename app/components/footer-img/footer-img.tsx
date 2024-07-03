@@ -1,7 +1,44 @@
+"use client";
+
+import Image from "next/image";
+import { useEffect, useRef } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import { CustomEase } from "gsap/dist/CustomEase";
+
 export default function FooterImg() {
+  const footerContainer = useRef<HTMLDivElement>(null);
+  const footerContent = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    let ctx = gsap.context(() => {
+      gsap.set([footerContent.current], {
+        y: -300,
+      });
+
+      const backgroundHeaderAnimation = gsap
+        .timeline({ paused: false })
+        .to([footerContent.current], {
+          y: 0,
+          duration: 3,
+          ease: "none",
+        });
+
+      ScrollTrigger.create({
+        trigger: footerContainer.current,
+        start: "-250px center",
+        end: `center center`,
+        animation: backgroundHeaderAnimation,
+        scrub: true,
+      });
+    });
+    return () => ctx.revert();
+
+  }, []);
+
   return (
-    <section className="min-h-screen bg-slate-950">
-      <div className="mx-[8.3vw] grid grid-cols-12 gap-2 pt-[13vw] pb-[5vw]">
+    <section ref={footerContainer} className="min-h-screen bg-slate-950 z-10 overflow-hidden">
+      <div ref={footerContent} className="mx-[8.3vw] grid grid-cols-12 gap-2 pt-[13vw] pb-[5vw] z-0">
         <div className="title text-slate-100 text-[9vw] leading-tight mb-[1.5vw]">
           <div className="title-mask">
             <div className="title-line">Our</div>
