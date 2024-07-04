@@ -42,7 +42,7 @@ export default function FooterImg() {
   return (
     <section ref={footerContainer} className="min-h-screen bg-slate-950 z-10 overflow-hidden">
       <div ref={footerContent} className="mx-[8.3vw] grid grid-cols-12 gap-2 pt-[13vw] pb-[5vw] z-0">
-        <div className="title text-slate-100 text-[9vw] leading-tight mb-[1.5vw]">
+        <div className="col-start-1 col-end-10 sm:col-start-1 sm:col-end-6 title text-[#e0ccbb] text-[16vw] sm:text-[10vw] leading-tight mb-[1.5vw]">
           <div className="title-mask">
             <div className="title-line">Our</div>
           </div>
@@ -50,12 +50,12 @@ export default function FooterImg() {
             <div className="title-line">Story</div>
           </div>
         </div>
-        <p className="body text-slate-100 col-start-1 col-end-6">
+        <p className="body text-[#e0ccbb] col-start-1 col-end-11 sm:col-end-5">
           Neque porro quisquam est qui dolorem ipsum quia dolor sit amet,
           consectetur, adipisci velit.
         </p>
-        <div className="divider col-start-1 col-end-13 my-[4vw] bg-slate-100 h-[1px]"></div>
-        <ul className="address text-slate-100 text-xs col-start-1 col-end-4">
+        <div className="divider col-start-1 col-end-13 my-[4vw] bg-[#e0ccbb] h-[1px]"></div>
+        <ul className="address text-[#e0ccbb] text-xs col-start-1 col-end-4">
           <li className="item">
             <a rel="noopener" target="_blank" href="#">
               San Lorenzo 833
@@ -71,7 +71,7 @@ export default function FooterImg() {
             </a>
           </li>
         </ul>
-        <ul className="nav text-slate-100 text-xs col-start-4 col-end-6">
+        <ul className="nav text-[#e0ccbb] text-xs col-start-4 col-end-6">
           <li className="item">
             <a href="/works" className="footer-link">
               Work
@@ -93,7 +93,7 @@ export default function FooterImg() {
             </a>
           </li>
         </ul>
-        <ul className="social text-slate-100 text-xs col-start-6 col-end-9">
+        <ul className="social text-[#e0ccbb] text-xs col-start-6 col-end-9">
           <li className="item">
             <a
               href="#"
