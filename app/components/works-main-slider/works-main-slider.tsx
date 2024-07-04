@@ -34,7 +34,10 @@ export default function WorksMainSlider() {
   const imagesBgList = useRef<(HTMLImageElement | null)[]>([]);
   const imageRef = useRef<HTMLImageElement>(null);
   const titleContainer = useRef<HTMLDivElement>(null);
+  const slideNumberRef = useRef<HTMLDivElement>(null);
+
   const scroller = useGlobal((s) => s.scroller);
+
   const [img, setImg] = useState<number>(0);
   const [isAnimating, setIsAnimating] = useState<boolean>(false);
 
@@ -42,11 +45,6 @@ export default function WorksMainSlider() {
     (event: any): void => {
       if (isAnimating) return;
       setIsAnimating(true);
-
-      //   const imagen = imageRef.current!;
-      //   imagen.style.backgroundImage = `url('${data[img].img}')`;
-      //   imagen.style.backgroundPosition = "top";
-      //   imagen.style.backgroundSize = "cover";
 
       const scrollValue = Math.round(event.deltaY) >= 0 ? 1 : -1;
       const nextImg = (img + scrollValue + data.length) % data.length;
@@ -73,26 +71,27 @@ export default function WorksMainSlider() {
       const tlBg = gsap.timeline({ paused: false });
       tlBg.set([imagesBgList.current[prevImg]], {
         zIndex: 19,
-        transform: "rotate(0deg)"
+        transform: "rotate(0deg)",
+        display: "none",
       });
       tlBg.set([imagesBgList.current[img]], {
         zIndex: 20,
-        transform: "rotate(0deg)"
+        transform: "rotate(0deg)",
+        display: "block",
       });
       tlBg.set([imagesBgList.current[nextImg]], {
         yPercent: scrollValue > 0 ? 150 : -150,
         zIndex: 21,
         scale: 1.5,
-        transform: "rotate(0deg)"
+        transform: "rotate(0deg)",
+        display: "block",
       });
 
-      //title
-      const tlTitle = gsap.timeline({
-        paused: false,
-        onComplete: () => setIsAnimating(false),
-      });
-      tlTitle.set([".img-title"], {
-        yPercent: scrollValue > 0 ? 131 : -101,
+      //slide text
+      const slideNumber = gsap.timeline({ paused: false,
+        onComplete: () => setIsAnimating(false), });      
+      slideNumber.set([".slide-number"], {
+        yPercent: 0,
       });
 
       setImg((prev: number) => {
@@ -103,7 +102,7 @@ export default function WorksMainSlider() {
 
       tl.to([imagesList.current[nextImg]], {
         duration: 1,
-        delay: 0.3,
+        delay: 0.5,
         ease: CustomEase.create(
           "custom",
           "M0,0 C0.126,0.382 0.091,0.674 0.249,0.822 0.441,1.002 0.818,1.001 1,1 "
@@ -111,23 +110,23 @@ export default function WorksMainSlider() {
         y: 0,
         scale: 1,
         clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
-      });    
+      });
 
-      const secondBgTl = gsap.timeline({paused: false})
+      const secondBgTl = gsap.timeline({ paused: false });
       secondBgTl.to([imagesBgList.current[img]], {
         duration: 1,
-        delay: 0.3,
+        delay: 0.5,
         ease: CustomEase.create(
           "custom",
           "M0,0 C0.126,0.382 0.091,0.674 0.249,0.822 0.441,1.002 0.818,1.001 1,1 "
         ),
         scale: 1.5,
-        transform: "rotate(12deg)"
+        transform: "rotate(12deg)",
       });
 
       tlBg.to([imagesBgList.current[nextImg]], {
         duration: 1,
-        delay: 0.3,
+        delay: 0.5,
         ease: CustomEase.create(
           "custom",
           "M0,0 C0.126,0.382 0.091,0.674 0.249,0.822 0.441,1.002 0.818,1.001 1,1 "
@@ -137,16 +136,27 @@ export default function WorksMainSlider() {
         scale: 1,
       });
 
-      tlTitle.to([".img-title"], {
-        duration: 1,
-        delay: 0.7,
+      slideNumber.to([".slide-number"], {
+        duration: 0.45,
         ease: CustomEase.create(
           "custom",
           "M0,0 C0.126,0.382 0.091,0.674 0.249,0.822 0.441,1.002 0.818,1.001 1,1 "
         ),
-        //clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
+        yPercent: scrollValue > 0 ? 150 : -150,
+        opacity: 0
+      }).set(".slide-number", {
+        yPercent: scrollValue > 0 ? -150 : 150,
+      }).to([".slide-number"], {
+        duration: .9,
+        delay: .3,
+        ease: CustomEase.create(
+          "custom",
+          "M0,0 C0.126,0.382 0.091,0.674 0.249,0.822 0.441,1.002 0.818,1.001 1,1 "
+        ),
         yPercent: 0,
+        opacity: 1
       });
+
     },
     [isAnimating, img]
   );
@@ -161,17 +171,27 @@ export default function WorksMainSlider() {
       className="h-full w-full flex items-center justify-center gap-10 bg-neutral-900"
       ref={imageRef}
     >
-      <div className="overflow-hidden absolute left-[16vw] z-20">
+      <div className=" absolute left-[16vw] z-20">
         <h2
           ref={titleContainer}
-          className="text-white text-4xl grid  img-title"
+          className="text-white  text-4xl grid "
         >
           {data &&
             data[img]?.title
               .split("\n ")
-              .map((word, i) => <span key={i}>{word}</span>)}
+              .map((word, i) => (
+                <div className="overflow-hidden">
+                  <div key={i} className="slide-number">{word}</div>
+                </div>
+              ))}
         </h2>
-        <p className="m-0 text-xs">Casaca</p>
+        <p className="m-0 text-xs hidden">Casaca</p>
+      </div>
+
+      <div className="overflow-hidden absolute right-[3.5vw] bottom-[3.5vw] z-20 text-slate-100">
+        <p className="m-0 text-xs overflow-hidden flex items-center gap-1">
+          <span ref={slideNumberRef} className="slide-number w-100 block">0{img + 1}</span> / 0{data.length}
+        </p>
       </div>
 
       <div className="overflow-hidden relative z-20 h-[380px] w-[280px]">
@@ -205,7 +225,7 @@ export default function WorksMainSlider() {
               fill
               sizes="100vw"
               className={`
-                  ${i === 0 ? "z-[20]" : "z-[19]"} 
+                  ${i === 0 ? "block" : "hidden"} 
                   img-background object-cover object-top`}
             />
           ))}
