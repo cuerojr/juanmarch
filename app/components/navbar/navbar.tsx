@@ -1,21 +1,28 @@
 "use client";
 import Link from "next/link";
 import Image from "next/image";
-import { useGlobal } from '@/lib/store';
-import { useEffect, useState } from "react";
+import { useGlobal } from "@/lib/store";
+import { useEffect, useRef, useState } from "react";
+import { gsap } from "gsap";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const scroller = useGlobal((s) => s.scroller);
+  const navBarContainer = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
-    if(isOpen) {
+    if (isOpen) {
       scroller?.stop();
     } else {
       scroller?.start();
     }
   }, [isOpen, scroller]);
 
-  const handleMenu = () => setIsOpen(!isOpen);
+  const handleMenu = () => {
+    setIsOpen(!isOpen);
+    let ctx = gsap.context(() => {});
+    return ctx.revert();
+  };
 
   return (
     <>
@@ -41,14 +48,53 @@ export default function Navbar() {
               </Link>
             </li>
             <li>
-              <button onClick={ () => handleMenu()}>menu</button>
+              <button onClick={() => handleMenu()}>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  className="lucide lucide-menu h-[1vw] w-[1vw]"
+                >
+                  <line x1="4" x2="20" y1="12" y2="12" />
+                  <line x1="4" x2="20" y1="6" y2="6" />
+                  <line x1="4" x2="20" y1="18" y2="18" />
+                </svg>
+              </button>
             </li>
           </ul>
         </div>
       </nav>
-      <nav className={`${isOpen? "fixed" : "hidden"} bg-slate-900 z-40 menu h-screen hiddens inset-0 overflow-hidden`}>
+      <nav
+        ref={navBarContainer}
+        className={`${
+          isOpen ? "fixed" : "hidden"
+        } bg-slate-900 z-50 menu h-screen hiddens inset-0 overflow-hidden`}
+      >
         <div className="wrapper h-screen flex items-center relative">
           <div className="container grid grid-cols-12 gap-2 text-slate-100">
+            <button className="absolute top-[4vw] right-[6.5vw]" onClick={() => handleMenu()}>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                className="lucide lucide-x h-[1vw] w-[1vw] text-slate-100"
+              >
+                <path d="M18 6 6 18" />
+                <path d="m6 6 12 12" />
+              </svg>
+            </button>
             <ul className="images h-[30vw] overflow-hidden col-start-3 col-end-6">
               <li className="image-item">
                 <img
@@ -134,7 +180,11 @@ export default function Navbar() {
                 </svg>
               </div>
             </ul>
-            <a href="mailto:info@studiocristal.com" target="_blank" className="link absolute bottom-[5vw] right-[5vw] text-xs">
+            <a
+              href="mailto:info@studiocristal.com"
+              target="_blank"
+              className="link absolute bottom-[5vw] right-[5vw] text-xs"
+            >
               <div className="wrap">
                 <div className="circle">
                   <div className="circle-fill"></div>
