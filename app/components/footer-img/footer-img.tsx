@@ -4,7 +4,6 @@ import Image from "next/image";
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-import { CustomEase } from "gsap/dist/CustomEase";
 import { useMediaQuery } from "@mantine/hooks";
 
 export default function FooterImg() {
