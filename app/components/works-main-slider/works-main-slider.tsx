@@ -180,8 +180,8 @@ export default function WorksMainSlider() {
             data[img]?.title
               .split("\n ")
               .map((word, i) => (
-                <div className="overflow-hidden">
-                  <div key={i} className="slide-number">{word}</div>
+                <div key={i} className="overflow-hidden">
+                  <div className="slide-number">{word}</div>
                 </div>
               ))}
         </h2>

@@ -58,7 +58,6 @@ function DobleImage({ url1, url2, start1, end1, start2, end2 }: any) {
             </h3>
           </div>
           <div className="thumbnail">
-            {/* <img className="w-[100%]" src={url1} alt="de telecom too silly" /> */}
             <Image
               src={url1}
               alt="de telecom too silly"
@@ -87,11 +86,6 @@ function DobleImage({ url1, url2, start1, end1, start2, end2 }: any) {
             </h3>
           </div>
           <div className="thumbnail">
-            {/* <img
-              className="w-[100%]"
-              src={url2}
-              alt="badya life imitates art"
-            /> */}
             <Image
               src={url2}
               alt="badya life imitates art"

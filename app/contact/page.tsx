@@ -38,7 +38,7 @@ export default function ContactImg() {
     <main>
       <header className="flex h-screen items-center justify-center py-[8.3vw] relative">
         <div className="mx-[8.3vw] relative w-[100%]">
-          <img
+          <Image
             src="https://a.storyblok.com/f/133769/758x1134/002f93a9b3/exo-ape-contact.jpg/m/1240x1855/filters:quality(90)"
             width="758"
             height="1134"

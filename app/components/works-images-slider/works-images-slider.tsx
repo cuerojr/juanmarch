@@ -1,5 +1,5 @@
 "use client";
-
+import Image from "next/image";
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
@@ -51,7 +51,7 @@ function WorksImagesSlider() {
       <div className="">
         <div ref={topSlider} className="flex items-end gap-4 mb-4">
           <div className="media w-[19vw]">
-            <img
+            <Image
               src="https://a.storyblok.com/f/133769/1920x1080/0eae58a8e2/columbia-pictures-grid-06-21-jumpstreet.jpg/m/800x450/filters:quality(90)"
               width="1920"
               height="1080"
@@ -61,7 +61,7 @@ function WorksImagesSlider() {
             />
           </div>
           <div className="media w-[40vw]">
-            <img
+            <Image
               src="https://a.storyblok.com/f/133769/1920x1080/4ee8f7e859/columbia-pictures-grid-02-equalizer.jpg/m/800x450/filters:quality(90)"
               width="1920"
               height="1080"
@@ -79,7 +79,7 @@ function WorksImagesSlider() {
             </video>
           </div>
           <div className="media w-[19vw]">
-            <img
+            <Image
               src="https://a.storyblok.com/f/133769/1920x1080/25f88fd2fa/columbia-pictures-grid-04-gilda.jpg/m/800x450/filters:quality(90)"
               width="1920"
               height="1080"
@@ -91,7 +91,7 @@ function WorksImagesSlider() {
         </div>
         <div ref={bottomSlider} className="flex items-start gap-4">
           <div className="media w-[19vw]">
-            <img
+            <Image
               src="https://a.storyblok.com/f/133769/1920x1080/6941e6c93c/columbia-pictures-grid-05-men-in-black.jpg/m/800x450/filters:quality(90)"
               width="1920"
               height="1080"
@@ -109,7 +109,7 @@ function WorksImagesSlider() {
             </video>
           </div>
           <div className="media w-[40vw]">
-            <img
+            <Image
               src="https://a.storyblok.com/f/133769/1920x1080/639f440368/columbia-pictures-grid-07-the-social-network.jpg/m/800x450/filters:quality(90)"
               width="1920"
               height="1080"
@@ -119,7 +119,7 @@ function WorksImagesSlider() {
             />
           </div>
           <div className="media w-[19vw]">
-            <img
+            <Image
               src="https://a.storyblok.com/f/133769/1920x1080/d3cc9066eb/columbia-pictures-grid-08-stand-by-me.jpg/m/800x450/filters:quality(90)"
               width="1920"
               height="1080"
