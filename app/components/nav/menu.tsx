@@ -1,84 +1,79 @@
-"use client";
-import Link from "next/link";
-import Image from "next/image";
-import { useGlobal } from "@/lib/store";
-import { useEffect, useRef, useState } from "react";
-import { gsap } from "gsap";
+import { gsap } from 'gsap'
+import { FC, useCallback, useEffect, useRef } from 'react'
 
-export default function Navbar() {
-  const [isOpen, setIsOpen] = useState<boolean>(false);
-  const scroller = useGlobal((s) => s.scroller);
-  const navBarContainer = useRef<HTMLDivElement>(null);
+import { NavItem } from './item'
+import Link from 'next/link'
+import { useGlobal } from '@/lib/store'
+
+type Props = {
+  open?: boolean
+  items: any[]
+}
+
+export const Menu: FC<Props> = ({ open = false, items = [] }) => {
+  const ref = useRef<HTMLDivElement | null>(null)
+  const [isOpen, setOpen] = useGlobal((s) => [s.isMenuOpen, s.setIsMenuOpen]);
+  const toggle = useCallback(() => setOpen(!open), [isOpen, setOpen]);
 
   useEffect(() => {
-    if (isOpen) {
-      scroller?.stop();
-    } else {
-      scroller?.start();
-    }
-  }, [isOpen, scroller]);
+    const container = ref.current
+    if (!container) return
+    const childs = gsap.utils.toArray(container.childNodes)
 
-  const handleMenu = () => {
-    setIsOpen(!isOpen);
-    let ctx = gsap.context(() => {});
-    return ctx.revert();
-  };
+    let tl: gsap.core.Timeline
+
+    if (open) {
+      tl = gsap
+        .timeline()
+        .to(container, {
+          yPercent: 0,
+          duration: 1.2,
+          ease: 'expo',
+          overwrite: true,
+          onStart: () => {
+            gsap.set(container, { visibility: 'visible' })
+          },
+        })
+        .to(childs, { autoAlpha: 1, stagger: 0.1 }, '<25%')
+        .from(childs, { y: -20, stagger: 0.1 }, '<')
+    } else {
+      tl = gsap
+        .timeline()
+        .to(childs, { autoAlpha: 0 })
+        .to(
+          container,
+          {
+            yPercent: -100,
+            duration: 0.75,
+            ease: 'expo',
+            overwrite: true,
+            onComplete: () => {
+              gsap.set(container, { visibility: 'hidden' })
+            },
+          },
+          '<',
+        )
+    }
+
+    return () => {
+      tl.kill()
+    }
+  }, [open])
 
   return (
-    <>
-      <nav className=" w-screen z-50 fixed text-slate-300">
-        <div className="flex item-center justify-between px-[6.25vw] py-[3.25vw]">
-          <Link className="text-xs nav-link gsap-title" href={"/"}>
-            Home
-          </Link>
-          <ul className="flex items-center gap-4">
-            <li className="">
-              <Link className="text-xs nav-link gsap-title" href="/works">
-                Works
-              </Link>
-            </li>
-            <li className="">
-              <Link className="text-xs nav-link gsap-title" href="/new-home">
-                New home
-              </Link>
-            </li>
-            <li className="">
-              <Link className="text-xs nav-link gsap-title" href="/contact">
-                Contact
-              </Link>
-            </li>
-            <li>
-              <button onClick={() => handleMenu()}>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  className="lucide lucide-menu h-[1rem] w-[1rem]"
-                >
-                  <line x1="4" x2="20" y1="12" y2="12" />
-                  <line x1="4" x2="20" y1="6" y2="6" />
-                  <line x1="4" x2="20" y1="18" y2="18" />
-                </svg>
-              </button>
-            </li>
-          </ul>
-        </div>
-      </nav>
-      <nav
-        ref={navBarContainer}
-        className={`${
-          isOpen ? "fixed" : "hidden"
-        } bg-slate-900 z-50 menu h-screen hiddens inset-0 overflow-hidden`}
-      >
-        <div className="wrapper h-screen flex items-center relative">
+    <nav
+      className="w-full h-dvh bg-primary text-primary-foreground flex flex-col gap-12 text-5xl items-center justify-center fixed top-0 left-0 invisible"
+      ref={ref}
+    >
+      {/* {items.map((item) => (
+        <NavItem key={item.id} href={`/${item.uid === 'home' ? '' : item.uid}`}>
+          {item.title}
+        </NavItem>
+      ))} */}
+      <div className="wrapper h-screen flex items-center relative">
           <div className="container grid grid-cols-12 gap-2 text-slate-100">
-            <button className="absolute top-[4vw] right-[6.5vw]" onClick={() => handleMenu()}>
+         
+            <button className="absolute top-[4vw] right-[6.5vw]" onClick={toggle}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
@@ -86,9 +81,9 @@ export default function Navbar() {
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
                 className="lucide lucide-x h-[1rem] w-[1rem] text-slate-100"
               >
                 <path d="M18 6 6 18" />
@@ -143,28 +138,28 @@ export default function Navbar() {
             </ul>
             <ul className="main col-start-8 col-end-11 text-4xl">
               <li className="main-link">
-                <a href="/works" className="main-line">
+                <Link href="/works" className="main-line">
                   Work
-                </a>
+                </Link>
               </li>
               <li className="main-link">
-                <a href="/studio" className="main-line">
-                  Studio
-                </a>
+                <Link href="/new-home" className="main-line">
+                  New home
+                </Link>
               </li>
               <li className="main-link">
-                <a href="/news" className="main-line">
+                <Link href="/news" className="main-line">
                   News
-                </a>
+                </Link>
               </li>
               <li className="main-link">
-                <a
+                <Link
                   href="/contact"
                   aria-current="page"
-                  className="main-line is-current is-active"
+                  className="main-line is-current is-active"                  
                 >
                   Contact
-                </a>
+                </Link>
               </li>
               <div className="current">
                 <svg
@@ -269,7 +264,6 @@ export default function Navbar() {
             </ul>
           </div>
         </div>
-      </nav>
-    </>
-  );
+    </nav>
+  )
 }

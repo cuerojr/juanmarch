@@ -1,84 +1,59 @@
 "use client";
-import Link from "next/link";
-import Image from "next/image";
 import { useGlobal } from "@/lib/store";
-import { useEffect, useRef, useState } from "react";
-import { gsap } from "gsap";
+import { Button } from "@/components/ui/button";
+import Image from "next/image";
 
-export default function Navbar() {
-  const [isOpen, setIsOpen] = useState<boolean>(false);
+import { useEffect, useState } from "react";
+import Link from "next/link";
+
+export default function Indice() {
+  const [open, setOpen] = useGlobal((s) => [s.isIndexOpen, s.setIsIndexOpen]);
+
   const scroller = useGlobal((s) => s.scroller);
-  const navBarContainer = useRef<HTMLDivElement>(null);
+
+  const handleModal = () => {
+    setOpen(false);
+  };
 
   useEffect(() => {
-    if (isOpen) {
+    if(open) {
       scroller?.stop();
     } else {
       scroller?.start();
     }
-  }, [isOpen, scroller]);
+    // const documents = [
+    //   {
+    //     data: {
+    //       slices: [
+    //         {
+    //           slice_type: "text_block",
+    //           primary: {
+    //             title: "Título 1",
 
-  const handleMenu = () => {
-    setIsOpen(!isOpen);
-    let ctx = gsap.context(() => {});
-    return ctx.revert();
-  };
+    //           },
+    //         },
+    //       ],
+    //     },
+    //   },
+    // ];
+    // const textBlockTitles = documents.flatMap((doc) =>
+    //   doc.data.slices
+    //     .filter((slice: any) => slice.slice_type === "text_block")
+    //     .map((slice: any) => slice.primary.title)
+    // );
+    // setTitles(textBlockTitles);
+  }, [open]);
 
   return (
-    <>
-      <nav className=" w-screen z-50 fixed text-slate-300">
-        <div className="flex item-center justify-between px-[6.25vw] py-[3.25vw]">
-          <Link className="text-xs nav-link gsap-title" href={"/"}>
-            Home
-          </Link>
-          <ul className="flex items-center gap-4">
-            <li className="">
-              <Link className="text-xs nav-link gsap-title" href="/works">
-                Works
-              </Link>
-            </li>
-            <li className="">
-              <Link className="text-xs nav-link gsap-title" href="/new-home">
-                New home
-              </Link>
-            </li>
-            <li className="">
-              <Link className="text-xs nav-link gsap-title" href="/contact">
-                Contact
-              </Link>
-            </li>
-            <li>
-              <button onClick={() => handleMenu()}>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  className="lucide lucide-menu h-[1rem] w-[1rem]"
-                >
-                  <line x1="4" x2="20" y1="12" y2="12" />
-                  <line x1="4" x2="20" y1="6" y2="6" />
-                  <line x1="4" x2="20" y1="18" y2="18" />
-                </svg>
-              </button>
-            </li>
-          </ul>
-        </div>
-      </nav>
-      <nav
-        ref={navBarContainer}
-        className={`${
-          isOpen ? "fixed" : "hidden"
-        } bg-slate-900 z-50 menu h-screen hiddens inset-0 overflow-hidden`}
-      >
-        <div className="wrapper h-screen flex items-center relative">
+    <dialog
+      open={open}
+      className={`fixed top-0 h-screen w-screen bg-slate-900 z-50 ${
+        open ? "flex items-center justify-center" : ""
+      }`}
+    >
+      <div className="wrapper h-screen flex items-center relative">
           <div className="container grid grid-cols-12 gap-2 text-slate-100">
-            <button className="absolute top-[4vw] right-[6.5vw]" onClick={() => handleMenu()}>
+            <button className="absolute top-[4vw] right-[6.5vw]" onClick={() => handleModal()}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
@@ -86,9 +61,9 @@ export default function Navbar() {
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
                 className="lucide lucide-x h-[1rem] w-[1rem] text-slate-100"
               >
                 <path d="M18 6 6 18" />
@@ -143,28 +118,28 @@ export default function Navbar() {
             </ul>
             <ul className="main col-start-8 col-end-11 text-4xl">
               <li className="main-link">
-                <a href="/works" className="main-line">
+                <Link href="/works" className="main-line">
                   Work
-                </a>
+                </Link>
               </li>
               <li className="main-link">
-                <a href="/studio" className="main-line">
-                  Studio
-                </a>
+                <Link href="/new-home" className="main-line">
+                  New home
+                </Link>
               </li>
               <li className="main-link">
-                <a href="/news" className="main-line">
+                <Link href="/news" className="main-line">
                   News
-                </a>
+                </Link>
               </li>
               <li className="main-link">
-                <a
+                <Link
                   href="/contact"
                   aria-current="page"
-                  className="main-line is-current is-active"
+                  className="main-line is-current is-active"                  
                 >
                   Contact
-                </a>
+                </Link>
               </li>
               <div className="current">
                 <svg
@@ -269,7 +244,6 @@ export default function Navbar() {
             </ul>
           </div>
         </div>
-      </nav>
-    </>
+    </dialog>
   );
 }

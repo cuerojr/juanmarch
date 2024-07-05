@@ -6,6 +6,7 @@ import VideoImg from "../components/video-img/video-img";
 import WorksImg from "../components/works-img/works-img";
 
 export default function MarinaHome() {
+
   return (
     <main>
       <HeaderImg />

@@ -7,7 +7,8 @@ import { primaryFont } from "@/lib/fonts";
 import { cn } from "@/lib/utils";
 import Cursor from "@/app/components/custom-cursor/custom-cursor";
 import Navbar from "@/app/components/navbar/navbar";
-
+import {Header} from "@/app/components/parana-header/header";
+import Indice from "@/app/components/nav/indice";
 
 export const metadata: Metadata = {
   title: "Design",
@@ -24,7 +25,9 @@ export default function RootLayout({
       <body>
         <Client />
         <Cursor />
-        <Navbar />
+        {/* <Navbar /> */}
+        <Header />
+        <Indice />
         {children}
       </body>
     </html>
