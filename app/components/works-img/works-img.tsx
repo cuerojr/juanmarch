@@ -63,9 +63,33 @@ export default function WorksImg() {
         Work
       </h2>
       <div ref={imagesContainer} className="grid grid-cols-12 gap-2 mb-2 z-20">
+        <div className="flex gap-2 items-center col-start-1 col-end-13 sm:col-start-9 sm:col-end-13">
+          <h2 className="label">
+            <svg
+              data-v-669b4a84=""
+              viewBox="0 0 12 12"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              className="icon h-[.8vw] w-[.8vw]"
+            >
+              <path
+                data-v-669b4a84=""
+                d="M7.41908 4.56679L6.13722 0L4.85418 4.92566L0 6L4.85418 7.25435L6.13722 12L7.3276 7.25435L12 6L7.41908 4.56679Z"
+                fill="currentColor"
+              ></path>
+            </svg>
+            <div className="text">Featured Projects</div>
+          </h2>
+        </div>
+        <div className="flex gap-2 col-start-1 col-end-13 sm:col-start-9 sm:col-end-13">
+          <p className="text-xs">
+            Highlights of cases that we passionately built with forward-thinking
+            clients and friends over the years.
+          </p>
+        </div>
         <div
           // ref={image1Ref}
-          className="col-start-1 col-end-13 sm:col-start-2 sm:col-end-8 overflow-hidden mb-5 sm:mb-0"
+          className="col-start-1 col-end-13 sm:col-start-2 sm:col-end-8 overflow-hidden mt-[-10vw] mb-5 sm:mb-0"
         >
           <Link href={`/works/columbia-pictures`}>
             <Image
@@ -86,7 +110,7 @@ export default function WorksImg() {
         </div>
         <div
           ref={image2Ref}
-          className="col-start-1 col-end-13 sm:col-start-9 sm:col-end-13 overflow-hidden mb-5 sm:mb-0 sm:mt-[29vw]"
+          className="col-start-1 col-end-13 sm:col-start-9 sm:col-end-13 overflow-hidden mb-5 sm:mb-0 sm:mt-[13vw]"
         >
           <div className="overflow-hidden">
             <Image

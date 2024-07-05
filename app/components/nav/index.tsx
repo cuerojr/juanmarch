@@ -60,13 +60,6 @@ export function Nav({ items = [] }: { items: any[] }) {
         </div>
       </nav>
 
-      <button
-        onClick={toggle}
-        className="md:hidden relative z-60 text-slate-100"
-      >
-        {open ? "Close" : "Menu"}
-      </button>
-
       <Menu open={open} items={items} />
     </>
   );

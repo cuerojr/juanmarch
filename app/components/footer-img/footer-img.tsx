@@ -44,10 +44,10 @@ export default function FooterImg() {
       <div ref={footerContent} className="mx-[8.3vw] grid grid-cols-12 gap-2 pt-[13vw] pb-[5vw] z-0">
         <div className="col-start-1 col-end-10 sm:col-start-1 sm:col-end-6 title text-[#e0ccbb] text-[16vw] sm:text-[10vw] leading-tight mb-[1.5vw]">
           <div className="title-mask">
-            <div className="title-line">Our</div>
+            <div className="title-line leading-[1]">Our</div>
           </div>
           <div className="title-mask">
-            <div className="title-line">Story</div>
+            <div className="title-line leading-[1]">Story</div>
           </div>
         </div>
         <p className="body text-[#e0ccbb] col-start-1 col-end-11 sm:col-end-5">
