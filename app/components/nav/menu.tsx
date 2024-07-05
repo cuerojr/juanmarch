@@ -138,18 +138,13 @@ export const Menu: FC<Props> = ({ open = false, items = [] }) => {
             </ul>
             <ul className="main col-start-8 col-end-11 text-4xl">
               <li className="main-link">
+                <Link href="/" className="main-line">
+                  Home
+                </Link>
+              </li>
+              <li className="main-link">
                 <Link href="/works" className="main-line">
-                  Work
-                </Link>
-              </li>
-              <li className="main-link">
-                <Link href="/new-home" className="main-line">
-                  New home
-                </Link>
-              </li>
-              <li className="main-link">
-                <Link href="/news" className="main-line">
-                  News
+                  Works
                 </Link>
               </li>
               <li className="main-link">
