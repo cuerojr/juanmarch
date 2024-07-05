@@ -16,16 +16,6 @@ export function Nav({ items = [] }: { items: any[] }) {
   const scroller = useGlobal((s) => s.scroller);
   const isSmallScreen = useMediaQuery("(max-width: 768px)");
   const pathname = usePathname();
-  const [isIndexOpen, setIsIndexOpen] = useGlobal((s) => [
-    s.isIndexOpen,
-    s.setIsIndexOpen,
-  ]);
-
-  // const [openModal, setOpenModal] = useState<boolean>(false);
-  // function handleModal() {
-  //   setIsIndexOpen(true);
-  // }
-
   const toggle = useCallback(() => setOpen(!open), [open, setOpen]);
 
   // Disable scroll when menu is open
@@ -58,9 +48,9 @@ export function Nav({ items = [] }: { items: any[] }) {
             viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
             className="lucide lucide-menu"
           >
             <line x1="4" x2="20" y1="12" y2="12" />
