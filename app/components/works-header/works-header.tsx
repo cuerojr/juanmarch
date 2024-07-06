@@ -34,7 +34,7 @@ function WorksHeader() {
   return (
     <header
       ref={headerContainer}
-      className="min-h-screen relative overflow-hidden pb-[5rem]"
+      className="min-h-screen relative overflow-hidden pb-[5rem] bg-slate-900"
     >
       <div className="px-[7.7vw]">
         <div className="grid relative grid-cols-12 gap-2 mb-2 z-20">

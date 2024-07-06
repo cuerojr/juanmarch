@@ -63,8 +63,8 @@ export default function WorksImg() {
         Work
       </h2>
       <div ref={imagesContainer} className="grid grid-cols-12 gap-2 mb-2 z-20">
-        <div className="flex gap-2 items-center col-start-1 col-end-13 sm:col-start-9 sm:col-end-13">
-          <h2 className="label">
+        <div className=" col-start-1 col-end-13 sm:col-start-9 sm:col-end-13">
+          <h2 className="label flex gap-2 items-center">
             <svg
               data-v-669b4a84=""
               viewBox="0 0 12 12"

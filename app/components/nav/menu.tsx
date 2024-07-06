@@ -150,10 +150,17 @@ export const Menu: FC<Props> = ({ open = false, items = [] }) => {
               <li className="main-link">
                 <Link
                   href="/contact"
-                  aria-current="page"
                   className="main-line is-current is-active"                  
                 >
                   Contact
+                </Link>
+              </li>
+              <li className="main-link">
+                <Link
+                  href="/studio"
+                  className="main-line is-current is-active"                  
+                >
+                  Studio
                 </Link>
               </li>
               <div className="current">

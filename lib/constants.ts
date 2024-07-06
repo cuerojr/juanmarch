@@ -1,4 +1,4 @@
-export const SITE_NAME = `Paraná Extremo`;
+export const SITE_NAME = `Diseño`;
 export const SITE_DESCRPTION = `Next Generation Customer Support Outsourcing Services.`;
 export const SITE_LANG = "es";
 export const SITE_URL =

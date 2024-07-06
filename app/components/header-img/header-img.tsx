@@ -34,10 +34,10 @@ export default function HeaderImg() {
   }, []);
 
   return (
-    <header ref={headerContainer} className="min-h-screen relative overflow-hidden">
+    <header ref={headerContainer} className="min-h-screen relative overflow-hidden bg-slate-900">
       <div className="px-[7.7vw]">
         <div className="grid relative grid-cols-12 gap-2 mb-2 z-20">
-          <div className="col-start-1 col-end-8 overflow-hidden pt-[30vw] pl-[10px]">
+          <div className="col-start-1 sm:col-start-1 col-end-13 sm:col-end-8 overflow-hidden pt-[30vw] pl-[10px]">
             <div className="text-mask">
               <div className="block text-start relative text-xl text-slate-100 leading-tight">
                 Lorem ipsum dolor sit amet, consectetur
@@ -71,7 +71,7 @@ export default function HeaderImg() {
               </div>
             </div>
           </h1>
-          <div className="col-start-1 sm:col-start-1 col-end-7 sm:col-end-7 overflow-hidden mb-[6vw]">
+          <div className="col-start-1 sm:col-start-1 col-end-13 sm:col-end-7 overflow-hidden mb-[6vw]">
             <p className="text-slate-100 text-xl leading-tight">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut
               elementum iaculis nulla, quis egestas massa. In ac enim purus.
