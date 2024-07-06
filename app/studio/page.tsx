@@ -134,7 +134,7 @@ export default function Studio() {
                   have, and curiosity is our most powerful tool. Our team is
                   guided by the principles of compassion and honesty in our
                   day-to-day communications, and we understand that people value
-                  feeling more than information. That's why we pour a lot of
+                  feeling more than information. That´s why we pour a lot of
                   soul and passion into our work, delivering experiences that
                   touch people on a deeper level.
                 </p>
@@ -181,7 +181,7 @@ export default function Studio() {
               </h3>
               <div className="body text-xs max-w-[19vw]">
                 <p>
-                  In today's world, we have become information-rich and
+                  In today´s world, we have become information-rich and
                   time-poor. It is those who focus on what really matters that
                   set the tone. We approach every project with a keen eye for
                   simplicity and elegance. Great digital design is the perfect
@@ -255,8 +255,8 @@ export default function Studio() {
             </p>
           </div>
           <blockquote className="quote col-start-10 col-end-12 text-xs self-end">
-            "Our approach is informed by insight and research, but at the end of
-            the day, we focus on making people feel."
+            ´´Our approach is informed by insight and research, but at the end of
+            the day, we focus on making people feel.´´
           </blockquote>
         </div>
         <div className="image">

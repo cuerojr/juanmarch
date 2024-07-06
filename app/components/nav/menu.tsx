@@ -13,7 +13,7 @@ type Props = {
 export const Menu: FC<Props> = ({ open = false, items = [] }) => {
   const ref = useRef<HTMLDivElement | null>(null)
   const [isOpen, setOpen] = useGlobal((s) => [s.isMenuOpen, s.setIsMenuOpen]);
-  const toggle = useCallback(() => setOpen(!open), [isOpen, setOpen]);
+  const toggle = useCallback(() => setOpen(!open), [isOpen, setOpen, open]);
 
   useEffect(() => {
     const container = ref.current
