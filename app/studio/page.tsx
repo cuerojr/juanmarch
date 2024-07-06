@@ -1,14 +1,10 @@
-"use client";
 
 import Image from "next/image";
-import WorksHeader from "@/app/components/works-header/works-header";
-import { useRef } from "react";
 
-function Studio() {
-  const index1 = useRef<HTMLDivElement>(null);
-  const index2 = useRef<HTMLDivElement>(null);
-  const index3 = useRef<HTMLDivElement>(null);
-  const index4 = useRef<HTMLDivElement>(null);
+import WorksHeader from "@/app/components/works-header/works-header";
+import FooterImg from "@/app/components/footer-img/footer-img";
+
+export default function Studio() {
 
   return (
     <main>
@@ -111,7 +107,7 @@ function Studio() {
               <span className="index absolute left-[-3.125vw] top-[9.3vw] text-[1.11vw]">
                 01
               </span>
-              <h3 ref={index1} className="subtitle text-4xl mb-[1.7vw]">
+              <h3 className="subtitle text-4xl mb-[1.7vw]">
                 Elevating sophistication across all senses
               </h3>
               <div className="body text-xs max-w-[19vw]">
@@ -342,8 +338,8 @@ function Studio() {
           </div>
         </div>
       </section>
+      <FooterImg />
     </main>
   );
 }
 
-export default Studio;
