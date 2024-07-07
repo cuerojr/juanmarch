@@ -204,12 +204,11 @@ export default function WorksMainSlider() {
       <div className="overflow-hidden relative z-20 h-[380px] w-[280px]">
         {data &&
           data.map((item, i) => (
-            <Link href={`/works/${item.slug}`}>
+            <Link key={item.title} href={`/works/${item.slug}`}>
               <Image
                 ref={(el) => {
                   imagesList.current[i] = el;
                 }}
-                key={item.title}
                 src={item.img}
                 alt={item.title}
                 height={420}
@@ -224,12 +223,11 @@ export default function WorksMainSlider() {
       <div className="absolute inset-0 z-10 bg-transparent">
         {data &&
           data.map((item, i) => (
-            <Link href={`/works/${item.slug}`}>
+            <Link key={item.title} href={`/works/${item.slug}`}>
               <Image
                 ref={(el) => {
                   imagesBgList.current[i] = el;
                 }}
-                key={item.title}
                 src={item.img}
                 alt={item.title}
                 fill
