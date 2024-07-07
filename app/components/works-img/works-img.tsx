@@ -112,7 +112,7 @@ export default function WorksImg() {
           ref={image2Ref}
           className="col-start-1 col-end-13 sm:col-start-9 sm:col-end-13 overflow-hidden mb-5 sm:mb-0 sm:mt-[13vw]"
         >
-          <div className="overflow-hidden">
+          <Link href={`/works/buildings-into-the-wild`}>
             <Image
               src={"/building.webp"}
               alt={"/building.webp"}
@@ -121,51 +121,55 @@ export default function WorksImg() {
               width={500}
               height={620}
             />
-          </div>
-          <div>
-            <p className="mt-2 text-sm">
-              <b>Lorem Ipsum</b>
-              <span className="text-slate-400"> - Dolor sit amet</span>
-            </p>
-          </div>
+            <div>
+              <p className="mt-2 text-sm">
+                <b>Lorem Ipsum</b>
+                <span className="text-slate-400"> - Dolor sit amet</span>
+              </p>
+            </div>
+          </Link>
         </div>
         <div
           ref={image3Ref}
           className="col-start-1 col-end-13 sm:col-start-6 sm:col-end-11 overflow-hidden mb-5 sm:mb-0 sm:mt-[11.5vw]"
         >
-          <Image
-            src={"/river.webp"}
-            alt={"/river.webp"}
-            sizes="100vw"
-            className="w-full h-auto img-grow"
-            width={500}
-            height={620}
-          />
-          <div>
-            <p className="mt-2 text-sm">
-              <b>Lorem Ipsum</b>
-              <span className="text-slate-400"> - Dolor sit amet</span>
-            </p>
-          </div>
+          <Link href={`/works/mistique-river`}>
+            <Image
+              src={"/river.webp"}
+              alt={"/river.webp"}
+              sizes="100vw"
+              className="w-full h-auto img-grow"
+              width={500}
+              height={620}
+            />
+            <div>
+              <p className="mt-2 text-sm">
+                <b>Lorem Ipsum</b>
+                <span className="text-slate-400"> - Dolor sit amet</span>
+              </p>
+            </div>
+          </Link>
         </div>
         <div
           ref={image4Ref}
           className="col-start-1 col-end-13 sm:col-start-2 sm:col-end-5 overflow-hidden sm:mt-[-10vw]"
         >
-          <Image
-            className="w-full h-auto img-grow"
-            src={"/dancer.webp"}
-            alt={"/dancer.webp"}
-            sizes="100vw"
-            width={500}
-            height={620}
-          />
-          <div>
-            <p className="mt-2 text-sm">
-              <b>Lorem Ipsum</b>
-              <span className="text-slate-400"> - Dolor sit amet</span>
-            </p>
-          </div>
+          <Link href={`/works/blue-dancer`}>
+            <Image
+              className="w-full h-auto img-grow"
+              src={"/dancer.webp"}
+              alt={"/dancer.webp"}
+              sizes="100vw"
+              width={500}
+              height={620}
+            />
+            <div>
+              <p className="mt-2 text-sm">
+                <b>Lorem Ipsum</b>
+                <span className="text-slate-400"> - Dolor sit amet</span>
+              </p>
+            </div>
+          </Link>
         </div>
       </div>
     </section>

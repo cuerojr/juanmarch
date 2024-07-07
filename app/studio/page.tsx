@@ -5,10 +5,15 @@ import WorksHeader from "@/app/components/works-header/works-header";
 import FooterImg from "@/app/components/footer-img/footer-img";
 
 export default function Studio() {
+  const header = { title: "Buildings\n Into\n Wild",
+    subtitle: "Celebrating a Century of Cinema",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed pulvinar, nunc vel consectetur lobortis, est ex maximus nunc, sed hendrerit metus mi euismod urna.",
+    image: "/building.webp"}
 
   return (
     <main>
-      <WorksHeader />
+      <WorksHeader header={ header }/>
       <section className="services dark pb-[13vw]">
         <div className="px-[7.7vw]">
           <ul className="grid relative grid-cols-12 gap-2 mb-2 z-20">

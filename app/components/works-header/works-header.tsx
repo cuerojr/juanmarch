@@ -5,7 +5,17 @@ import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 
-function WorksHeader() {
+export default function WorksHeader({
+  header,
+}: {
+  header: {
+    title: string;
+    subtitle: string;
+    description: string;
+    image: string;
+  };
+}) {
+  const { title, subtitle, description, image } = header;
   const headerContainer = useRef<HTMLDivElement>(null);
   const backgroundHeader = useRef<HTMLImageElement>(null);
 
@@ -39,20 +49,17 @@ function WorksHeader() {
       <div className="px-[7.7vw]">
         <div className="grid relative grid-cols-12 gap-2 mb-2 z-20">
           <div className="col-start-1 col-end-13 overflow-hidden mt-[8vw] mb-[6.8vw] text-slate-100 max-h-[65vw]">
-            <h1 className="text-[10vw]  leading-tight">
-              <div className="text-mask">
-                <div className="block text-left relative">Experiencia</div>
-              </div>
-              <div className="text-mask">
-                <div className="block text-left relative">Diseño</div>
-              </div>
-              <div className="text-mask">
-                <div className="block text-left relative">Digital</div>
-              </div>
+            <h1 className="text-[10vw] leading-[10vw] mb-4">
+              {title &&
+                title.split("\n ").map((text, i) => (
+                  <div key={i} className="text-mask">
+                    <div className="block text-left relative">{text}</div>
+                  </div>
+                ))}
             </h1>
             <h2 className="subtitle">
               <div className="text-mask">
-                <div className="text-xs">Celebrating a Century of Cinema</div>
+                <div className="text-xs">{ subtitle }</div>
               </div>
             </h2>
             <svg
@@ -70,13 +77,7 @@ function WorksHeader() {
             </svg>
           </div>
           <div className="col-start-1 sm:col-start-1 col-end-7 sm:col-end-7 overflow-hidden mb-[6vw] text-slate-100">
-            <p className="intro text-2xl">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Pellentesque vestibulum nec lorem nec posuere. Sed mattis ipsum
-              leo, in semper turpis mollis in. Sed laoreet, augue gravida ornare
-              pellentesque, sem ligula semper turpis, eget sagittis mi odio non
-              est. Quisque.
-            </p>
+            <p className="intro text-2xl">{ description }</p>
             <a
               href="https://columbia100.watson.la/"
               target="_blank"
@@ -150,7 +151,7 @@ function WorksHeader() {
       </div>
       <Image
         ref={backgroundHeader}
-        src={`/movies.webp`}
+        src={image}
         alt={``}
         className={`absolute top-0 left-0 right-0 z-10`}
         sizes="100vw"
@@ -165,5 +166,3 @@ function WorksHeader() {
     </header>
   );
 }
-
-export default WorksHeader;
