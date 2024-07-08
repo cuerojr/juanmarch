@@ -126,7 +126,7 @@ export default function VideoImg() {
       </div>
       <video ref={videoRef} loop muted className="video scale-50 z-10">
         <source
-          src="https://player.vimeo.com/progressive_redirect/playback/914803778/rendition/1080p/file.mp4?loc=external&amp;log_user=0&amp;signature=5344c0e4fea63ca54bb433621ca0be7b9470b475583fa68b26de2b6e380a390a"
+          src="/reel.mp4"
           type="video/mp4"
         />
       </video>
