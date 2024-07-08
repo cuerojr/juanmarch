@@ -94,7 +94,7 @@ export default function VideoImg() {
       className={`h-screen flex items-center bg-slate-950 relative overflow-hidden`}
     >
       <div>
-        <h2 className="label text-white absolute flex top-[2rem] w-screen justify-center items-center z-20 text-xs">
+        <h2 className="label text-white absolute flex top-[3.5rem] gap-2 sm:top-[2rem] w-screen justify-center items-center z-20 ">
           <svg
             viewBox="0 0 12 12"
             fill="none"
@@ -106,7 +106,7 @@ export default function VideoImg() {
               fill="currentColor"
             ></path>
           </svg>
-          <div className="text text-xs">
+          <div className="text text-lg sm:text-xs">
             Work in motion
           </div>
         </h2>
@@ -120,8 +120,8 @@ export default function VideoImg() {
             <div className="title-line text-[6rem] text-slate-100">Reel</div>
           </div>
         </h2>
-        <div className="body text-white absolute flex bottom-[2rem] justify-center items-center z-20 text-xs w-screen">
-          <p className="w-[20vw] mx-auto">Our work is best experienced in motion. Don’t forget to put on your headphones.</p>
+        <div className="body text-white absolute flex bottom-[3.5rem] sm:bottom-[2rem] justify-center items-center z-20  w-screen">
+          <p className="text-center w-[80vw] sm:w-[30vw] mx-auto text-lg sm:text-xs">Our work is best experienced in motion. Don’t forget to put on your headphones.</p>
         </div>
       </div>
       <video ref={videoRef} loop muted className="video scale-50 z-10">

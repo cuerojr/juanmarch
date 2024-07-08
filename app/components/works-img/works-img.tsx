@@ -59,11 +59,8 @@ export default function WorksImg() {
 
   return (
     <section className="min-h-screen px-[7.7vw] py-[14.30vw]">
-      <h2 className="block text-left  text-[16vw] leading-none text-slate-900 ml-[7.7vw] mb-[6.8vw]">
-        Work
-      </h2>
-      <div ref={imagesContainer} className="grid grid-cols-12 gap-2 mb-2 z-20">
-        <div className=" col-start-1 col-end-13 sm:col-start-9 sm:col-end-13">
+      <div ref={imagesContainer} className="relative grid grid-cols-12 gap-2 mb-2 z-20">
+        <div className="sm:absolute sm:top-[29vw] col-start-1 col-end-13 sm:col-start-9 sm:col-end-13">
           <h2 className="label flex gap-2 items-center">
             <svg
               data-v-669b4a84=""
@@ -78,18 +75,21 @@ export default function WorksImg() {
                 fill="currentColor"
               ></path>
             </svg>
-            <div className="text">Featured Projects</div>
+            <div className="text-xs">Featured Projects</div>
           </h2>
         </div>
-        <div className="flex gap-2 col-start-1 col-end-13 sm:col-start-9 sm:col-end-13">
-          <p className="text-xs">
+        <h2 className="block col-start-1 col-end-13 sm:col-start-2 sm:col-end-8 text-left text-[17vw] leading-[17vw] text-slate-900 my-[5vw] sm:mb-[6.8vw]">
+          Work
+        </h2>
+        <div className="sm:absolute sm:right-0 sm:top-[32vw] col-start-1 col-end-13 sm:col-start-9 sm:col-end-13 mb-[2rem] sm:mb-0">
+          <p className="text-2xl sm:text-sm md:text-lg w-full">
             Highlights of cases that we passionately built with forward-thinking
             clients and friends over the years.
           </p>
         </div>
         <div
           // ref={image1Ref}
-          className="col-start-1 col-end-13 sm:col-start-2 sm:col-end-8 overflow-hidden mt-[-10vw] mb-5 sm:mb-0"
+          className="col-start-1 col-end-13 sm:col-start-2 sm:col-end-8 overflow-hidden mb-5 sm:mb-0"
         >
           <Link href={`/works/columbia-pictures`}>
             <Image
@@ -110,7 +110,7 @@ export default function WorksImg() {
         </div>
         <div
           ref={image2Ref}
-          className="col-start-1 col-end-13 sm:col-start-9 sm:col-end-13 overflow-hidden mb-5 sm:mb-0 sm:mt-[13vw]"
+          className="col-start-1 col-end-13 sm:col-start-9 sm:col-end-13 overflow-hidden mb-5 sm:mb-0 sm:mt-[20vw]"
         >
           <Link href={`/works/buildings-into-the-wild`}>
             <Image

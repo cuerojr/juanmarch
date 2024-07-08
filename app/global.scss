@@ -66,13 +66,9 @@
   }
 
   html {
-    cursor: none;
+    //cursor: none;
     font-size: 16px;
     @apply antialiased;
-  }
-
-  body {
-    cursor: none;
   }
 
   .custom-cursor {
@@ -82,8 +78,8 @@
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    pointer-events: none !important;
-    cursor: none !important;
+    pointer-events:all !important;
+    cursor:default !important;
     z-index: 9999;
     //mix-blend-mode: difference;
     padding: 10px;
