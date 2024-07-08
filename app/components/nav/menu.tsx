@@ -1,6 +1,6 @@
 import { gsap } from "gsap";
 import { FC, useCallback, useEffect, useRef } from "react";
-
+import Image from "next/image"
 import { NavItem } from "./item";
 import Link from "next/link";
 import { useGlobal } from "@/lib/store";
@@ -91,7 +91,7 @@ export const Menu: FC<Props> = ({ open = false, items = [] }) => {
           </button>
           <ul className="images h-[30vw] overflow-hidden col-start-3 col-end-6">
             <li className="image-item">
-              <img
+              <Image
                 src="/city.webp"
                 width="1228"
                 height="1736"
@@ -124,7 +124,7 @@ export const Menu: FC<Props> = ({ open = false, items = [] }) => {
               />
             </li>
             <li className="image-item">
-              <img
+              <Image
                 src="/dancer.webp"
                 width="1228"
                 height="1736"

@@ -71,9 +71,9 @@ function WorksImagesSlider() {
             />
           </div>
           <div className="media w-[26vw]">
-            <video loop muted>
+            <video loop muted autoPlay>
               <source
-                src="https://a.storyblok.com/f/133769/x/996bf1f53a/columbia-pictures-grid-03-superbad.mp4"
+                src="/reel.mp4"
                 type="video/mp4"
               />
             </video>
@@ -101,9 +101,9 @@ function WorksImagesSlider() {
             />
           </div>
           <div className="media w-[26vw]">
-            <video loop muted>
+            <video loop muted autoPlay>
               <source
-                src="https://a.storyblok.com/f/133769/x/61193bb86f/columbia-pictures-grid-06-spiderman.mp4"
+                src="/reel.mp4"
                 type="video/mp4"
               />
             </video>

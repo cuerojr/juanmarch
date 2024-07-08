@@ -9,7 +9,7 @@ export default function Studio() {
     subtitle: "Celebrating a Century of Cinema",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed pulvinar, nunc vel consectetur lobortis, est ex maximus nunc, sed hendrerit metus mi euismod urna.",
-    image: "/building.webp"}
+    image: "/studio.webp"}
 
   return (
     <main>
@@ -83,7 +83,7 @@ export default function Studio() {
           </div>
         </div>
       </section>
-      <section className="how-we-work light bg-black text-[#e4e0db] py-[15vw]">
+      <section className="how-we-work light bg-black text-[#e0ccbb] py-[15vw]">
         <div className="px-[7.7vw]">
           <h2 className="label">
             <svg
@@ -265,8 +265,8 @@ export default function Studio() {
           </blockquote>
         </div>
         <div className="image">
-          <img
-            src="https://a.storyblok.com/f/133769/2500x1667/5224da023b/exo-ape-studio-mood.jpg/m/2400x1600/filters:quality(90)"
+          <Image
+            src="/studio2.webp"
             width="2500"
             height="1667"
             alt="exo ape"
@@ -278,7 +278,7 @@ export default function Studio() {
           <div className="dark"></div> <div className="light"></div>
         </div>
       </section>
-      <section className="the-apes text-[#e4e0db] bg-black py-[13vw]">
+      <section className="the-apes text-[#e0ccbb] bg-black py-[13vw]">
         <div className="px-[7.7vw] grid relative grid-cols-12 gap-2 mb-2 z-20">
           <h2 className="label">
             <svg
@@ -316,7 +316,7 @@ export default function Studio() {
           </div>
           <div className="images flex col-start-2 col-end-12">
             <div className="image w-[33vw] mt-[10vw]">
-              <img
+              <Image
                 src="https://a.storyblok.com/f/133769/1920x1280/b13859fdad/exo-ape-studio-mood-team-04.jpg/m/650x433/filters:quality(90)"
                 width="1920"
                 height="1280"
@@ -326,7 +326,7 @@ export default function Studio() {
               />
             </div>
             <div className="image w-[20vw] ml-auto">
-              <img
+              <Image
                 src="https://a.storyblok.com/f/133769/1200x1790/ac2f6934ee/exo-ape-studio-mood-team-03.jpg/m/650x970/filters:quality(90)"
                 width="1200"
                 height="1790"
