@@ -1,14 +1,10 @@
-"use client";
-import Image from "next/image";
 
-import WorksHeader from "@/app/components/works-header/works-header";
 import FooterImg from "@/app/components/footer-img/footer-img";
-
-import SmallTitles from "../components/small-titles/small-titles";
 import StudioServices from "../components/studio-services/studio-services";
 import HowWeWork from "../components/studio-how-we-work/how-we-work";
 import WhatWeBelielive from "../components/studio-what-we-believe/what-we-belielive";
 import TheApes from "../components/studio-the-apes/the-apes";
+import StudioHeader from "../components/studio-header/studio-header";
 
 const header = {
   title: "Buildings\n Into\n Wild",
@@ -22,7 +18,7 @@ export default function Studio() {
 
   return (
     <main>
-      <WorksHeader header={header} />
+      <StudioHeader header={header} />
       <StudioServices />
       <HowWeWork />      
       <WhatWeBelielive />
