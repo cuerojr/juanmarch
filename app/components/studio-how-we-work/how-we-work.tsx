@@ -34,7 +34,7 @@ function HowWeWork() {
   };
 
   return (
-    <section className="how-we-work light bg-black text-[#e0ccbb] py-[15vw]">
+    <section className="how-we-work light bg-black text-[#e4e0db] py-[15vw]">
       <div className="px-[7.7vw]">
         <SmallTitles title={"How we work"} />
         <div className="intro w-[40vw] mt-[4.8vw] mb-[11.4vw] text-2xl">
