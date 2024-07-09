@@ -8,7 +8,7 @@ import WorksImg from "../components/works-img/works-img";
 export default function MarinaHome() {
 
   return (
-    <main>
+    <main className="relative overflow-x-hidden">
       <HeaderImg />
       <WorksImg />
       <VideoImg />

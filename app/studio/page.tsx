@@ -17,7 +17,7 @@ const header = {
 export default function Studio() {
 
   return (
-    <main>
+    <main className="relative overflow-x-hidden">
       <StudioHeader header={header} />
       <StudioServices />
       <HowWeWork />      
