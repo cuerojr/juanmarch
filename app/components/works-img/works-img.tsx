@@ -6,6 +6,7 @@ import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { useMediaQuery } from "@mantine/hooks";
+import SmallTitles from "../small-titles/small-titles";
 
 export default function WorksImg() {
   const isSmallScreen = useMediaQuery("(max-width: 640px)");
@@ -61,22 +62,7 @@ export default function WorksImg() {
     <section className="min-h-screen px-[7.7vw] py-[14.30vw]">
       <div ref={imagesContainer} className="relative grid grid-cols-12 gap-2 mb-2 z-20">
         <div className="sm:absolute sm:top-[29vw] col-start-1 col-end-13 sm:col-start-9 sm:col-end-13">
-          <h2 className="label flex gap-2 items-center">
-            <svg
-              data-v-669b4a84=""
-              viewBox="0 0 12 12"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              className="icon h-[.8vw] w-[.8vw]"
-            >
-              <path
-                data-v-669b4a84=""
-                d="M7.41908 4.56679L6.13722 0L4.85418 4.92566L0 6L4.85418 7.25435L6.13722 12L7.3276 7.25435L12 6L7.41908 4.56679Z"
-                fill="currentColor"
-              ></path>
-            </svg>
-            <div className="text-xs">Featured Projects</div>
-          </h2>
+          <SmallTitles title={'Featured Projects'} />
         </div>
         <h2 className="block col-start-1 col-end-13 sm:col-start-2 sm:col-end-8 text-left text-[17vw] leading-[17vw] text-slate-900 my-[5vw] sm:mb-[6.8vw]">
           Work
