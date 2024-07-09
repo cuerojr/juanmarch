@@ -10,7 +10,7 @@ import { Toaster } from '@/components/ui/toaster';
 export default function Home() {  
   
   return (
-    <main id="a-main" className="h-screen w-screen bg-[#fcf6f4] relative">
+    <main id="a-main" className="relative overflow-x-hidden">
       <HeaderImg />
       <WorksImg />
       <VideoImg />

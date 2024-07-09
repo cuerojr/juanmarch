@@ -15,14 +15,14 @@ export async function Header() {
               href="/"
               className="text-lg font-semibold hover:underline underline-offset-4"
             >
-              {/* <Image
-                src={"/images/logo.png"}
+              <Image
+                //className="fill-[#ffffff]"
+                src={"/logo.svg"}
                 alt="logo Parana Extremoo"
-                width={50}
-                height={50}
+                width={60}
+                height={60}
                 priority
-              /> */}
-              logo
+              />
             </Link>
             <Nav items={[{
               title: "Home",
