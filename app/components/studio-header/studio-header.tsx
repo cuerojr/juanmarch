@@ -27,7 +27,7 @@ export default function StudioHeader({
       const backgroundHeaderAnimation = gsap
         .timeline({ paused: false })
         .to([backgroundHeader.current], {
-          top: -100,
+          top: -80,
         });
 
       ScrollTrigger.create({
@@ -47,7 +47,7 @@ export default function StudioHeader({
       className="min-h-screen relative overflow-hidden pb-[5rem] bg-slate-900"
     >
       <div className="px-[7.7vw]">
-        <div className="grid relative grid-cols-12 gap-2 mb-2 z-20">
+        <div className="grid relative grid-cols-12 gap-2 mb-2 z-20 sm:pt-[7vw]">
           <div className="col-start-1 col-end-13 overflow-hidden mt-[8vw] mb-[6.8vw] text-slate-100 max-h-[65vw]">
             <h1 className="text-[15vw] leading-[15vw] sm:text-[10vw] sm:leading-[10vw] mb-4">
               {title &&
@@ -59,7 +59,7 @@ export default function StudioHeader({
             </h1>
             <h2 className="subtitle">
               <div className="text-mask">
-                <div className="text-xs">{ subtitle }</div>
+                <div className="text-xs">{subtitle}</div>
               </div>
             </h2>
             <svg
@@ -76,7 +76,7 @@ export default function StudioHeader({
               ></path>
             </svg>
           </div>
-          <div className="col-start-1 sm:col-start-1 col-end-13 sm:col-end-7 overflow-hidden mb-[6vw] text-slate-100">
+          {/* <div className="col-start-1 sm:col-start-1 col-end-13 sm:col-end-7 overflow-hidden mb-[6vw] text-slate-100">
             <p className="intro text-2xl">{ description }</p>
             <a
               href="https://columbia100.watson.la/"
@@ -116,37 +116,24 @@ export default function StudioHeader({
                 </div>
               </div>
             </a>
-          </div>
+          </div> */}
         </div>
         <div className="grid relative grid-cols-12 gap-2 mb-2 z-20 text-xs text-slate-100">
-          <ul className="col-start-1 sm:col-start-1 col-end-3 sm:col-end-3">
-            <li>
-              <b>Client</b>
-            </li>
-            <li>Watson Design Group</li>
-          </ul>
-          <ul className="col-start-3 sm:col-start-3 col-end-5 sm:col-end-5">
-            <li>
-              <b>Services</b>
-            </li>
-            <li className="service">Visual Design</li>
-            <li className="service">UI &amp; UX Design</li>
-            <li className="service">Web Development</li>
-          </ul>
-          <ul className="col-start-5 sm:col-start-5 col-end-7 sm:col-end-7">
-            <li className="industry">
-              <b>Industries</b>
-            </li>
-            <li className="industry">Entertainment</li>
-          </ul>
-          <ul className="col-start-7 sm:col-start-7 col-end-9 sm:col-end-9">
-            <li>
-              <b>Date</b>
-            </li>
-            <li>
-              <time>February ‘2024</time>
-            </li>
-          </ul>
+          <div className="body col-start-1 sm:col-start-7 col-end-13 sm:col-end-13 mb-8 sm:mt-[10vw]">
+            <h3 className="text-xl">
+              We explore and push the boundaries of digital for brands and
+              businesses that strive to enhance people's lives through
+              exceptional experiences.
+            </h3>
+          </div>
+          <div className="body col-start-1 sm:col-start-7 col-end-13 sm:col-end-11">
+            <p className="text-sm text-[#f8f8f8]">
+              For over a decade, we've been using profound design aesthetics,
+              meticulously crafted details, and surprising interactions to
+              create digital experiences that spark conversation, inspire
+              action, and drive desirability.
+            </p>
+          </div>
         </div>
       </div>
       <Image
