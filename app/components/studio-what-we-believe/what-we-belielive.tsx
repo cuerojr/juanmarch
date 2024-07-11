@@ -16,7 +16,7 @@ function WhatWeBelielive() {
               <div className="title-line">Informs,</div>
             </div>
             <div className="title-mask">
-              <div className="title-line">— Emotion</div>
+              <div className="title-line text-nowrap">— Emotion</div>
             </div>
             <div className="title-mask">
               <div className="title-line">Converts</div>
@@ -31,8 +31,8 @@ function WhatWeBelielive() {
             </p>
           </div>
           <blockquote className="quote col-start-10 col-end-12 text-xs self-end hidden sm:block">
-            ´´Our approach is informed by insight and research, but at the end
-            of the day, we focus on making people feel.´´
+            {`"Our approach is informed by insight and research, but at the end
+            of the day, we focus on making people feel"`}
           </blockquote>
         </div>
         <div className="image">

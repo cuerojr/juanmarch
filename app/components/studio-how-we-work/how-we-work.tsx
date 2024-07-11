@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useCallback } from "react";
 import SmallTitles from "../small-titles/small-titles";
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
@@ -14,11 +14,7 @@ function HowWeWork() {
   let xPercent: number = 0;
   let direction: number = -1;
 
-  useEffect(() => {
-    requestAnimationFrame(animation);
-  }, []);
-
-  const animation = () => {
+  const animation = useCallback(() => {
     if (xPercent <= -100) {
       xPercent = 0;
     }
@@ -31,8 +27,13 @@ function HowWeWork() {
     gsap.set(secondText.current, { xPercent: xPercent });
     xPercent += 0.1 * direction;
     requestAnimationFrame(animation);
-  };
+  }, [xPercent, direction]);
 
+  useEffect(() => {
+    requestAnimationFrame(animation);
+  }, [animation]);
+
+ 
   return (
     <section className="how-we-work light bg-black text-[#e4e0db] py-[15vw]">
       <div className="px-[7.7vw]">
