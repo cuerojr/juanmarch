@@ -21,7 +21,7 @@ export async function Header() {
                 x="0px"
                 y="0px"
                 viewBox="0 0 1031.8 233.2"
-                className="fill-[#ffffff] w-[4rem] h-[1rem]"
+                className="fill-[#ffffff] w-[5rem] h-[2rem]"
               >
                 <g>
                   <g>
