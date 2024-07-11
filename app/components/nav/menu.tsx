@@ -71,7 +71,7 @@ export const Menu: FC<Props> = ({ open = false, items = [] }) => {
         </NavItem>
       ))} */}
       <div className="wrapper h-screen flex items-center relative">
-        <div className="container grid grid-cols-12 gap-2 text-slate-100">
+        <div className="w-screen grid grid-cols-12 gap-2 text-slate-100">
           <button className="absolute top-[4vw] right-[6.5vw]" onClick={toggle}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -89,7 +89,7 @@ export const Menu: FC<Props> = ({ open = false, items = [] }) => {
               <path d="m6 6 12 12" />
             </svg>
           </button>
-          <ul className="images h-[30vw] overflow-hidden col-start-3 col-end-6">
+          <ul className="images h-[30vw] overflow-hidden hidden sm:block col-start-3 col-end-6">
             <li className="image-item">
               <Image
                 src="/city.webp"
@@ -135,7 +135,7 @@ export const Menu: FC<Props> = ({ open = false, items = [] }) => {
               />
             </li>
           </ul>
-          <ul className="main col-start-8 col-end-11 text-4xl">
+          <ul className="main col-start-2 col-end-11 mx-auto sm:col-start-7 sm:col-end-11 sm:text-4xl text-[15vw] italic sm:not-italic">
             <li className="main-link">
               <Link href="/" className="main-line">
                 Home
@@ -175,7 +175,7 @@ export const Menu: FC<Props> = ({ open = false, items = [] }) => {
             target="_blank"
             className="link absolute bottom-[5vw] right-[5vw] text-xs"
           >
-            <div className="wrap">
+            <div className="wrap flex items-center">
               <div className="circle">
                 <div className="circle-fill"></div>
                 <svg
@@ -205,7 +205,7 @@ export const Menu: FC<Props> = ({ open = false, items = [] }) => {
               </div>
             </div>
           </a>
-          <ul className="social col-start-8 col-end-11 hidden">
+          <ul className="social col-start-2 col-end-11 sm:col-start-8 sm:col-end-11 hidden">
             <li className="social-link">
               <a
                 href="https://www.behance.net/"

@@ -71,7 +71,7 @@ function WorksImagesSlider() {
             />
           </div>
           <div className="media w-[26vw]">
-            <video loop muted autoPlay>
+            <video loop muted>
               <source
                 src="/reel.mp4"
                 type="video/mp4"
@@ -101,7 +101,7 @@ function WorksImagesSlider() {
             />
           </div>
           <div className="media w-[26vw]">
-            <video loop muted autoPlay>
+            <video loop muted>
               <source
                 src="/reel.mp4"
                 type="video/mp4"
