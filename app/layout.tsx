@@ -25,7 +25,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang={SITE_LANG} className={cn(primaryFont.variable)}>
-      <body>
+      <body className=" w-screen overflow-x-hidden">
         <Client />
         <Cursor />
         <Header />

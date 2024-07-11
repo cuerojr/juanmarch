@@ -14,7 +14,7 @@ export default function WorkPAge({ params }: { params: { slug: string } }) {
   
   const { header, worksTitle, imagesSlider }: any = data;
   return (
-    <main>
+    <main className="min-h-screen">
       <WorksHeader header={header}/>
       <WorksTitle worksTitle={worksTitle}/>
       <WorksImagesSlider />

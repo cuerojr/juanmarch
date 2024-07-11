@@ -41,6 +41,7 @@ export default function WorksHeader({
     });
     return () => ctx.revert();
   }, []);
+  
   return (
     <header
       ref={headerContainer}
