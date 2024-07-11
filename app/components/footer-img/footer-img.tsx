@@ -50,12 +50,12 @@ export default function FooterImg() {
             <div className="title-line leading-[1]">Story</div>
           </div>
         </div>
-        <p className="body text-[#e0ccbb] col-start-1 col-end-11 sm:col-end-5">
+        <p className="body text-[#e0ccbb] text-2xl sm:text-base col-start-1 col-end-13 sm:col-end-5">
           Neque porro quisquam est qui dolorem ipsum quia dolor sit amet,
           consectetur, adipisci velit.
         </p>
         <div className="divider col-start-1 col-end-13 my-[4vw] bg-[#e0ccbb] h-[1px]"></div>
-        <ul className="address text-[#e0ccbb] text-xs col-start-1 col-end-13 sm:col-start-1 sm:col-end-4">
+        <ul className="address hidden sm:block text-[#e0ccbb] text-xs col-start-1 col-end-13 sm:col-start-1 sm:col-end-4">
           <li className="item">
             <a rel="noopener" target="_blank" href="#">
               San Lorenzo 833
@@ -71,7 +71,7 @@ export default function FooterImg() {
             </a>
           </li>
         </ul>
-        <ul className="nav text-[#e0ccbb] text-xs col-start-1 col-end-6 sm:col-start-4 sm:col-end-6">
+        <ul className="nav text-[#e0ccbb] text-md sm:text-xs col-start-1 col-end-6 sm:col-start-4 sm:col-end-6">
           <li className="item">
             <a href="/works" className="footer-link">
               Work
@@ -93,7 +93,7 @@ export default function FooterImg() {
             </a>
           </li>
         </ul>
-        <ul className="social text-[#e0ccbb] text-xs col-start-7 col-end-13 sm:col-start-6 sm:col-end-9">
+        <ul className="social text-[#e0ccbb] text-md sm:text-xs col-start-7 col-end-13 sm:col-start-6 sm:col-end-9">
           <li className="item">
             <a
               href="#"
