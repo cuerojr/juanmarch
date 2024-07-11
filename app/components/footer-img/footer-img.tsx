@@ -40,7 +40,7 @@ export default function FooterImg() {
   }, [isSmallScreen]);
 
   return (
-    <section ref={footerContainer} className="min-h-screen bg-slate-950 z-10 overflow-hidden">
+    <section ref={footerContainer} className="sm:min-h-screen bg-slate-950 z-10 overflow-hidden">
       <div ref={footerContent} className="mx-[8.3vw] grid grid-cols-12 gap-2 pt-[13vw] pb-[5vw] z-0">
         <div className="col-start-1 col-end-13 sm:col-start-1 sm:col-end-6 title text-[#e0ccbb] text-[16vw] sm:text-[10vw] leading-tight mb-[1.5vw]">
           <div className="title-mask">
