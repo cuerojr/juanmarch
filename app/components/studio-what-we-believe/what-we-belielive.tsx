@@ -5,10 +5,10 @@ function WhatWeBelielive() {
   return (
     <section className="what-we-believe pt-[13vw]">
         <div className="grid relative grid-cols-12 gap-2 mb-[10.5vw] mx-[8.3vw] z-20">
-          <div className="col-start-1 col-end-3 flex items-end">
+          <div className="col-start-1 col-end-13 sm:col-start-1 sm:col-end-3 flex items-end">
             <SmallTitles title={"What we believe"} />
           </div>
-          <h2 className="title text-[9vw] leading-[9vw] col-start-4 col-end-11 text-4xl mb-[4vw]">
+          <h2 className="title text-[15vw] leading-[15vw] sm:text-[10vw] sm:leading-[10vw] col-start-1 col-end-13 sm:col-start-4 sm:col-end-11 text-4xl mb-[4vw]">
             <div className="title-mask">
               <div className="title-line">Data </div>
             </div>
@@ -22,7 +22,7 @@ function WhatWeBelielive() {
               <div className="title-line">Converts</div>
             </div>
           </h2>
-          <div className="body col-start-4 col-end-9">
+          <div className="body col-start-1 col-end-13 sm:col-start-4 sm:col-end-9">
             <p>
               We believe that the most effective outcomes are achieved when
               data-driven insights are used to inspire emotive experiences.
@@ -30,7 +30,7 @@ function WhatWeBelielive() {
               and higher conversion rates.
             </p>
           </div>
-          <blockquote className="quote col-start-10 col-end-12 text-xs self-end">
+          <blockquote className="quote col-start-10 col-end-12 text-xs self-end hidden sm:block">
             ´´Our approach is informed by insight and research, but at the end
             of the day, we focus on making people feel.´´
           </blockquote>

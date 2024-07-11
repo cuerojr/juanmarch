@@ -49,7 +49,7 @@ export default function StudioHeader({
       <div className="px-[7.7vw]">
         <div className="grid relative grid-cols-12 gap-2 mb-2 z-20">
           <div className="col-start-1 col-end-13 overflow-hidden mt-[8vw] mb-[6.8vw] text-slate-100 max-h-[65vw]">
-            <h1 className="text-[10vw] leading-[10vw] mb-4">
+            <h1 className="text-[15vw] leading-[15vw] sm:text-[10vw] sm:leading-[10vw] mb-4">
               {title &&
                 title.split("\n ").map((text, i) => (
                   <div key={i} className="text-mask">
@@ -76,7 +76,7 @@ export default function StudioHeader({
               ></path>
             </svg>
           </div>
-          <div className="col-start-1 sm:col-start-1 col-end-7 sm:col-end-7 overflow-hidden mb-[6vw] text-slate-100">
+          <div className="col-start-1 sm:col-start-1 col-end-13 sm:col-end-7 overflow-hidden mb-[6vw] text-slate-100">
             <p className="intro text-2xl">{ description }</p>
             <a
               href="https://columbia100.watson.la/"
