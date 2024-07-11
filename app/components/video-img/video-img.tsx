@@ -91,7 +91,7 @@ export default function VideoImg() {
   return (
     <section
       ref={videoContainer}
-      className={`h-screen flex items-center bg-slate-950 relative overflow-hidden`}
+      className={`h-[100dvh] flex items-center bg-slate-950 relative overflow-hidden`}
     >
       <div>
         <h2 className="label text-white absolute flex top-[3.5rem] gap-2 sm:top-[2rem] w-screen justify-center items-center z-20 ">
