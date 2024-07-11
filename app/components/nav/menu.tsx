@@ -72,18 +72,18 @@ export const Menu: FC<Props> = ({ open = false, items = [] }) => {
       ))} */}
       <div className="wrapper h-screen flex items-center relative">
         <div className="w-screen grid grid-cols-12 gap-2 text-slate-100">
-          <button className="absolute top-[4vw] right-[6.5vw]" onClick={toggle}>
+          <button className="absolute top-[4vw] right-[5vw]" onClick={toggle}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
               height="24"
               viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
+              fill="#ffffff"
+              stroke="#ffffff"
               strokeWidth="2"
               strokeLinecap="round"
               strokeLinejoin="round"
-              className="lucide lucide-x h-[1rem] w-[1rem] text-slate-100"
+              className="lucide lucide-x h-[1rem] w-[1rem]"
             >
               <path d="M18 6 6 18" />
               <path d="m6 6 12 12" />
