@@ -16,7 +16,7 @@ function SmallTitles({ title }: { title: string }) {
           fill="currentColor"
         ></path>
       </svg>
-      <div className="text-xs">{title}</div>
+      <div className="text-xl sm:text-xs">{title}</div>
     </h2>
   );
 }
