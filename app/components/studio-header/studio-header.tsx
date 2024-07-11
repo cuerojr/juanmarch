@@ -121,17 +121,17 @@ export default function StudioHeader({
         <div className="grid relative grid-cols-12 mb-2 z-20 text-xs text-slate-100">
           <div className="body col-start-1 sm:col-start-7 col-end-13 sm:col-end-13 mb-4 sm:mt-[10vw]">
             <h3 className="text-xl">
-              We explore and push the boundaries of digital for brands and
+              {`We explore and push the boundaries of digital for brands and
               businesses that strive to enhance people's lives through
-              exceptional experiences.
+              exceptional experiences.`}
             </h3>
           </div>
           <div className="body col-start-1 sm:col-start-7 col-end-13 sm:col-end-11">
             <p className="text-xs text-[#f8f8f8]">
-              For over a decade, we've been using profound design aesthetics,
+              {`For over a decade, we've been using profound design aesthetics,
               meticulously crafted details, and surprising interactions to
               create digital experiences that spark conversation, inspire
-              action, and drive desirability.
+              action, and drive desirability.`}
             </p>
           </div>
         </div>
